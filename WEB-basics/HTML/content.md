@@ -42,11 +42,11 @@
 
 ### head
 Внутри пишется `title`. указывается `meta`, где прописана кодировка сайта
-* <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> - какая кодировка на сайте использована.
-* <meta name="discription" content="Отображается в поисковике под названием" />
-* <meta name="keywords" content="" /> - ключевые слова для поискового робота.
-* <link href="" rel="stylesheet" type="text/css" /> - подключить стили из CSS скрипта.
-* <script src=""> </script>
+* \<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> - какая кодировка на сайте использована.
+* \<meta name="discription" content="Отображается в поисковике под названием" />
+* \<meta name="keywords" content="" /> - ключевые слова для поискового робота.
+* \<link href="" rel="stylesheet" type="text/css" /> - подключить стили из CSS скрипта.
+* \<script src=""> </script>
 
 
 ### body
@@ -55,17 +55,17 @@
 
 ## Список
 * Нумерованный:
-    <ol type="I|i|1|a|A" start="с чего начинать" reversed="reversed; перевернуть порядок">
-        <li> </li>
-    </ol>
+    \<ol type="I|i|1|a|A" start="с чего начинать" reversed="reversed; перевернуть порядок">
+        \<li> </li>
+    \</ol>
 * Ненумерованный:
-    <ul type="disc|circle|square">
-        <li> </li>
-    </ul>
+    \<ul type="disc|circle|square">
+        \<li> </li>
+    \</ul>
 * Ненумерованный с большим отступом, вышел из употребления:
-    <dir>
-        <li> </li>
-    </dir>
+    \<dir>
+        \<li> </li>
+    \</dir>
 
 
 ## Атрибуты
@@ -76,11 +76,11 @@
 
 ## Ссылки
 * Ссылка на другую страницу:
-    <a href="https://yandex.com" target="_blank" title="Yandex"> Yandex </a> - ссылка откроет сайт в новой вкладке, отобразит надпись при наведении.
-    <a href="/etc/vim/"> Vim config </a>
+    \<a href="https://yandex.com" target="_blank" title="Yandex"> Yandex </a> - ссылка откроет сайт в новой вкладке, отобразит надпись при наведении. <br />
+    \<a href="/etc/vim/"> Vim config </a>
 * Ссылка на блок на текущей странице
-    <a href="#example"> </a> - перейдёт к тэгу `a` с именем `example`
-    <a name="example"> </a>
+    \<a href="#example"> </a> - перейдёт к тэгу `a` с именем `example` <br />
+    \<a name="example"> </a>
 
 
 ## Картинки
@@ -90,17 +90,17 @@ align="center" />
 
 
 ## Таблицы
-\<table border="1; границы">
-    <caption> Название таблицы </caption>
-    <tr> 
-        <th> Столб 1 </th> - выделено жирным
-        <th> Столб 2 </th>
-        <th> Столб 3 </th>
-    </tr>
-    <tr> <td> Значение 1 </td> <td> Значение 2 </td> <td> Значение 3 </td> </tr>
-    <tr> <td> Значение 4 </td> <td> Значение 5 </td> <td> Значение 6 </td> </tr>
-    <tr> <td> Значение 7 </td> <td> Значение 8 </td> <td> Значение 9 </td> </tr>
-<\/table>
+\<table border="1; границы"> <br />
+    \<caption> Название таблицы </caption> <br />
+    \<tr> <br />
+        \<th> Столб 1 </th> - выделено жирным <br />
+        \<th> Столб 2 </th> <br />
+        \<th> Столб 3 </th> <br /> 
+    \</tr> <br />
+    \<tr> <td> Значение 1 </td> <td> Значение 2 </td> <td> Значение 3 </td> </tr> <br />
+    \<tr> <td> Значение 4 </td> <td> Значение 5 </td> <td> Значение 6 </td> </tr> <br />
+    \<tr> <td> Значение 7 </td> <td> Значение 8 </td> <td> Значение 9 </td> </tr> <br />
+\</table>
 
 
 ## Div и span
