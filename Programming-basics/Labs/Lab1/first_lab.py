@@ -6,7 +6,7 @@ def main():
     try:
         angle_in_gradus = float(input("Enter the angle in gradus: "))
     except ValueError:
-        print("Wrong angle given, numeral value expected", file=sys.stderr)
+        print("Wrong angle given, numerical value was expected", file=sys.stderr)
         exit(-1)
     angle_in_rads = math.radians(angle_in_gradus)
 
@@ -16,7 +16,7 @@ def main():
         print("It's impossible to calculate the value, division by zero",
               file=sys.stderr)
     else:
-        print(f"z1 = {z1}")
+        print(f"z1 = {z1:.10f}")
 
     try:
         z2 = (1 - math.tan(angle_in_rads)) / (1 + math.tan(angle_in_rads))
@@ -24,7 +24,7 @@ def main():
         print("It's impossible to calculate the value, division by zero",
               file=sys.stderr)
     else:
-        print(f"z2 = {z2}")
+        print(f"z2 = {z2:.10f}")
 
 
 if __name__ == "__main__":
