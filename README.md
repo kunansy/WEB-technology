@@ -1,5 +1,5 @@
 # WEB-technology
 
 ## Расписание
-![/schedule.jpg]()
+![](schedule.jpg)
 
