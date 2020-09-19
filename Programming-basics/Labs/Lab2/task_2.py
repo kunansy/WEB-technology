@@ -5,23 +5,22 @@ def f(x: float, y: float, r: float) -> bool:
     if x * y < 0:
         return False
 
-    if x > 0:
+    if x >= 0:
         return x**2 + y**2 <= r**2
-    return x**2 + y**2 >= r**2
+    return y >= -r - x
 
 
-def main() -> None:
+def main() -> str:
     try:
-        x, y, r = map(float, input("Enter the point: ").split())
+        x, y, r = map(float, input("Enter the point (x, y) and R: ").split())
     except ValueError:
-        print("Wrong coords given", file=sys.stderr)
+        print("Wrong input", file=sys.stderr)
         exit(-1)
-    print(f"Точка {x, y} ", end='')
+
     if f(x, y, r):
-        print("попала")
-    else:
-        print("не попала")
+        return "Попадает"
+    return "Не попадает"
 
 
 if __name__ == '__main__':
-    main()
+    print(main())
