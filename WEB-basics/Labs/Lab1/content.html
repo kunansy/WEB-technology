@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Визитка. Колобов Кирилл </title>
+        <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" lang="ru"/>
+		<meta name="discription" content="Лабораторная работа №1, визитная карточка" />
+        <meta name="author" content="Колобов Кирилл"/>
+        <meta name="keywords" content="визитка, HTML, обучение"/>
+	</head>
+	<body>
+        <h3 style="background-color: #70a3ab" align="center"> Личные данные </h3> 
+		<ul>
+            <li> <em><font face="Verdana" title="Фамилия, имя, отчество"> ФИО: </font></em> Колобов Кирилл Витальевич </li>
+			<li> <em><font face="Verdana"> Дата рождения:</font></em>       30.07.2002 </li>
+            <li> <em><font face="Verdana"> Адрес:</font></em> <address>     г. Москва, ул. Малая Семёновская 12-1008Б </address>  </li>
+			<li> <em><font face="Verdana"> Семейное положение:</font></em>  холост </li>
+			<li> <em><font face="Verdana"> Вредных привычек</font></em>     не имею </li>
+			<li> <em><font face="Verdana"> В свободное время:</font></em>   занимаюсь самообразованием, изучаю новые технологии </li>
+		</ul>
+
+		<h3 style="background-color: #70a3ab" align="center"> Контактные данные </h3>
+		<ul>
+			<li> <em><font face="Verdana"> Phone: </font></em> <a href="tel:+79374112140" title="Phone"> +7 (937) 411-21-40 </a> </li>
+			<li> <em><font face="Verdana"> Email: </font></em> <a href="mailto:kolobov.kirill@list.ru" title="Email" content="Email"> kolobov.kirill@list.ru </a> </li>
+			<li> <em><font face="Verdana"> Github: </font></em> <a href='https://github.com/kunansy' target="_blank" title="Github"> kunansy </a> </li>
+		</ul>
+		<img src="https://a.radikal.ru/a11/2009/85/925f5badcf84.jpg" style="width: 300px; height: 400px;" alt="фото" title="фото" /> 
+	    
+    	<h3 style="background-color: #70a3ab" align="center"> Проекты </h3>
+        <details>
+            <summary> API для Национального корпуса русского языка </summary>
+            <p> <b> Ссылка: </b> <a href="https://github.com/kunansy/RNC" title="RNC" target="_blank"> RNC </a> </p>
+            <p> <b> Цель: </b> модуль по получению примеров употребления слова в контексте из проекта «Словарный запас» перерос в самостоятельный проект.</p>
+        </details>
+
+		<h3 style="background-color: #70a3ab" align="center"> Навыки </h3>
+        <table border="1">
+            <caption> Навыки </caption>
+            <tr>
+                <th> Технологии </th>
+                <th> Уровень </th>
+            </tr>
+            <tr> <td> Python </td>  <td> <progress max="100" value="95" title="95%"> </progress> </td> </tr>
+            <tr> <td> C++ </td>     <td> <progress max="100" value="80" title="80%"> </progress> </td> </tr>
+            <tr> <td> SQL </td>     <td> <progress max="100" value="80" title="80%"> </progress> </td> </tr>
+            <tr> <td> Git </td>     <td> <progress max="100" value="80" title="80%"> </progress> </td> </tr>
+         </table>
+        
+         <h4 style="color: red;" align="right"> Оценивание </h4>
+         <form name="assessment" align="right">
+             <label for="design" title="Design is OK"> Дизайн </label> <input type="checkbox" id="design"/> <br />
+             <label for="functionality" title="Functionality is OK"> Функциональность </label> <input type="checkbox" id="functionality"/> <br />
+             <label for="info" title="The site is informative"> Информативность </label> <input type="checkbox" id="info"/> <br />
+             <label for="mark" title="And his mark is..."> Оценка: </label> <input type="number" value="100000000000" id="mark"/> <br />
+             <input type="submit" name="Подтвердить" id="submit" title="Submit the assessment"/> <br />
+         </form>
+	</body>
+</html>
