@@ -6,7 +6,7 @@ def f(x: float, y: float, r: float) -> bool:
         return False
 
     if x >= 0:
-        return x**2 + y**2 <= r**2
+        return x**2 + y**2 <= r
     return y >= -r - x
 
 
