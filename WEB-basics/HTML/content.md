@@ -46,7 +46,7 @@
 * \<meta name="discription" content="Отображается в поисковике под названием" />
 * \<meta name="keywords" content="" /> - ключевые слова для поискового робота.
 * \<link href="" rel="stylesheet" type="text/css" /> - подключить стили из CSS скрипта.
-* \<script src=""> </script>
+* \<script src=""> \</script>
 
 
 ### body
@@ -56,15 +56,15 @@
 ## Список
 * Нумерованный: <br />
     \<ol type="I|i|1|a|A" start="с чего начинать" reversed="reversed; перевернуть порядок"> <br />
-        \<li> </li> <br />
+        \<li> \</li> <br />
     \</ol>
 * Ненумерованный: <br />
     \<ul type="disc|circle|square"> <br />
-        \<li> </li> <br />
+        \<li> \</li> <br />
     \</ul> 
 * Ненумерованный с большим отступом, вышел из употребления: <br />
     \<dir> <br />
-        \<li> </li> <br />
+        \<li> \</li> <br />
     \</dir>
 
 
@@ -91,15 +91,15 @@ align="center" />
 
 ## Таблицы
 \<table border="1; границы"> <br />
-    \<caption> Название таблицы </caption> <br />
+    \<caption> Название таблицы \</caption> <br />
     \<tr> <br />
-        \<th> Столб 1 </th> - выделено жирным <br />
-        \<th> Столб 2 </th> <br />
-        \<th> Столб 3 </th> <br /> 
+        \<th> Столб 1 \</th> - выделено жирным <br />
+        \<th> Столб 2 \</th> <br />
+        \<th> Столб 3 \</th> <br /> 
     \</tr> <br />
-    \<tr> <td> Значение 1 </td> <td> Значение 2 </td> <td> Значение 3 </td> </tr> <br />
-    \<tr> <td> Значение 4 </td> <td> Значение 5 </td> <td> Значение 6 </td> </tr> <br />
-    \<tr> <td> Значение 7 </td> <td> Значение 8 </td> <td> Значение 9 </td> </tr> <br />
+    \<tr> \<td> Значение 1 \</td> \<td> Значение 2 \</td> \<td> Значение 3 \</td> \</tr> <br />
+    \<tr> \<td> Значение 4 \</td> \<td> Значение 5 \</td> \<td> Значение 6 \</td> \</tr> <br />
+    \<tr> \<td> Значение 7 \</td> \<td> Значение 8 \</td> \<td> Значение 9 \</td> \</tr> <br />
 \</table>
 
 
