@@ -6,36 +6,41 @@
 		<meta name="discription" content="Лабораторная работа №1, визитная карточка" />
         <meta name="author" content="Колобов Кирилл"/>
         <meta name="keywords" content="визитка, HTML, обучение"/>
-
         <link rel="stylesheet" href="style.css">
     </head>
 	<body>
-        <h3> Личные данные </h3> 
-        <ul>
-            <li> <span id="fieldName" title="Фамилия, имя, отчество"> ФИО: </span> Колобов Кирилл Витальевич </li>
-            <li> <span id="fieldName"> Дата рождения:</span>       30.07.2002 </li>
-            <li> <span id="fieldName"> Адрес:</span> <address>     г. Москва, ул. Малая Семёновская 12-1008Б </address>  </li>
-			<li> <span id="fieldName"> Семейное положение:</span>  холост </li>
-			<li> <span id="fieldName"> Вредных привычек</span>     не имею </li>
-			<li> <span id="fieldname"> В свободное время:</span>   занимаюсь самообразованием, изучаю новые технологии </li>
-		</ul>
+        <h3 class="header"> Личные данные </h3>
+        <hr />
+        <div class="personal-data">
+            <ul>
+                <li> <span class="fieldName" title="Фамилия, имя, отчество"> ФИО: </span> Колобов Кирилл Витальевич </li>
+                <li> <span class="fieldName"> Дата рождения:</span>       30.07.2002 </li>
+                <li> <span class="fieldName"> Адрес:</span> <address>     г. Москва, ул. Малая Семёновская 12-1008Б </address>  </li>
+    		    <li> <span class="fieldName"> Семейное положение:</span>  холост </li>
+    		    <li> <span class="fieldName"> Вредных привычек</span>     не имею </li>
+    		    <li> <span class="fieldName"> В свободное время:</span>   занимаюсь самообразованием, изучаю новые технологии </li>
+	    	</ul>
 
-		<img src="https://a.radikal.ru/a11/2009/85/925f5badcf84.jpg" alt="фото" title="фото" /> 
-		<h3> Контактные данные </h3>
+		    <img class="photo" src="https://a.radikal.ru/a11/2009/85/925f5badcf84.jpg" alt="фото" title="фото" />
+        </div>
+        <h3 class="header"> Контактные данные </h3>
+        <hr />
 		<ul>
-			<li> <span id="fieldName"> Phone: </span> <a href="tel:+79374112140" title="Phone"> +7 (937) 411-21-40 </a> </li>
-            <li> <span id="fieldName"> Email: </span> <a href="mailto:kolobov.kirill@list.ru" title="Email" content="Email"> kolobov.kirill@list.ru </a> </li>
-			<li> <span id="fieldName"> Github: </span> <a href='https://github.com/kunansy' target="_blank" title="Github"> kunansy </a> </li>
+			<li> <span class="fieldName"> Phone: </span> <a href="tel:+79374112140" title="Phone"> +7 (937) 411-21-40 </a> </li>
+            <li> <span class="fieldName"> Email: </span> <a href="mailto:kolobov.kirill@list.ru" title="Email" content="Email"> kolobov.kirill@list.ru </a> </li>
+			<li> <span class="fieldName"> Github: </span> <a href='https://github.com/kunansy' target="_blank" title="Github"> kunansy </a> </li>
 		</ul>
 
-    	<h3> Проекты </h3>
-        <details>
+    	<h3 class="header"> Проекты </h3>
+        <hr />
+        <details class="rnc-api">
             <summary> API для Национального корпуса русского языка </summary>
-            <p> <b> Ссылка: </b> <a href="https://github.com/kunansy/RNC" title="RNC" target="_blank"> RNC </a> </p>
-            <p> <b> Цель: </b> модуль по получению примеров употребления слова в контексте из проекта «Словарный запас» перерос в самостоятельный проект.</p>
+            <p class="det-link"> <span class="fieldName"> Ссылка: </span> <a href="https://github.com/kunansy/RNC" title="RNC" target="_blank"> RNC </a> </p>
+            <p class="det-info"> <span class="fieldName"> Цель: </span> модуль по получению примеров употребления слова в контексте из проекта «Словарный запас» перерос в самостоятельный проект.</p>
         </details>
 
-		<h3> Навыки </h3>
+		<h3 class="header"> Навыки </h3>
+        <hr />
         <table border="1">
             <caption> Навыки </caption>
             <tr>
@@ -48,13 +53,13 @@
             <tr> <td> Git </td>     <td> <progress max="100" value="80" title="80%"> </progress> </td> </tr>
          </table>
         
-         <h4> Оценивание </h4>
-         <form name="assessment" align="right">
-             <label for="design" title="Design is OK"> Дизайн </label> <input type="checkbox" id="design"/> <br />
-             <label for="functionality" title="Functionality is OK"> Функциональность </label> <input type="checkbox" id="functionality"/> <br />
-             <label for="info" title="The site is informative"> Информативность </label> <input type="checkbox" id="info"/> <br />
-             <label for="mark" title="And his mark is..."> Оценка: </label> <input type="number" value="100000000000" id="mark"/> <br />
-             <input type="submit" name="Подтвердить" id="submit" title="Submit the assessment"/> <br />
-         </form>
+        <h4 class="assessment"> Оценивание </h4>
+        <form name="assessment" align="right">
+            <label for="design" title="Design is OK"> Дизайн </label> <input type="checkbox" id="design"/> <br />
+            <label for="functionality" title="Functionality is OK"> Функциональность </label> <input type="checkbox" id="functionality"/> <br />
+            <label for="info" title="The site is informative"> Информативность </label> <input type="checkbox" id="info"/> <br />
+            <label for="mark" title="And his mark is..."> Оценка: </label> <input type="number" value="100000000000" id="mark"/> <br />
+            <input type="submit" name="Подтвердить" id="submit" title="Submit the assessment"/> <br />
+        </form>
 	</body>
 </html>

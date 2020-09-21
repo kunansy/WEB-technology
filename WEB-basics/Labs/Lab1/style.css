@@ -1,20 +1,37 @@
 * {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-right: 0;
+    margin-left: 0;
 }
-h3 {
-    background-color: #c0c0c0;
+.header {
     text-align: center;
+    margin: 0;
+    font-weight: 550;
+    line-height: 35px;
 }
-img {
-    position: relative;
-    top: 2px;
-    left: 2%;
+.photo {
+    position: absolute;
+    right: 10px;
+    top: 10%;
     width: 20%;
 }
-h4 {
-    font-color: #ea5339;
+.assessment {
     text-align: right;
+    color: #ea5339;
 }
-span#fieldName {
-    font-style: italic;
+.fieldName {
+    font-weight: 550;
+}
+.det-link{
+    margin-bottom: 0;
+}
+.det-info{
+    margin: 0;
+}
+.personal-data{
+    height: 350px;
+}
+.rnc-api {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
