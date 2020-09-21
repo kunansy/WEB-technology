@@ -1,40 +1,33 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title> Визитка. Колобов Кирилл </title>
+    <head>
+	<title> Визитка. Колобов Кирилл </title>
         <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" lang="ru"/>
 		<meta name="discription" content="Лабораторная работа №1, визитная карточка" />
         <meta name="author" content="Колобов Кирилл"/>
         <meta name="keywords" content="визитка, HTML, обучение"/>
-        <style>
-            h3 {
-                background-color: #70a3ab;
-                text-align: center;
-            }
-            em {
-                font-family: Verdana;
-            }
-        </style>
+
+        <link rel="stylesheet" href="style.css">
     </head>
 	<body>
         <h3> Личные данные </h3> 
-		<ul>
-            <li> <em title="Фамилия, имя, отчество"> ФИО: </em> Колобов Кирилл Витальевич </li>
-            <li> <em> Дата рождения:</em>       30.07.2002 </li>
-            <li> <em> Адрес:</em> <address>     г. Москва, ул. Малая Семёновская 12-1008Б </address>  </li>
-			<li> <em> Семейное положение:</em>  холост </li>
-			<li> <em> Вредных привычек</em>     не имею </li>
-			<li> <em> В свободное время:</em>   занимаюсь самообразованием, изучаю новые технологии </li>
+        <ul>
+            <li> <span id="fieldName" title="Фамилия, имя, отчество"> ФИО: </span> Колобов Кирилл Витальевич </li>
+            <li> <span id="fieldName"> Дата рождения:</span>       30.07.2002 </li>
+            <li> <span id="fieldName"> Адрес:</span> <address>     г. Москва, ул. Малая Семёновская 12-1008Б </address>  </li>
+			<li> <span id="fieldName"> Семейное положение:</span>  холост </li>
+			<li> <span id="fieldName"> Вредных привычек</span>     не имею </li>
+			<li> <span id="fieldname"> В свободное время:</span>   занимаюсь самообразованием, изучаю новые технологии </li>
 		</ul>
 
+		<img src="https://a.radikal.ru/a11/2009/85/925f5badcf84.jpg" alt="фото" title="фото" /> 
 		<h3> Контактные данные </h3>
 		<ul>
-			<li> <em> Phone: </em> <a href="tel:+79374112140" title="Phone"> +7 (937) 411-21-40 </a> </li>
-			<li> <em> Email: </em> <a href="mailto:kolobov.kirill@list.ru" title="Email" content="Email"> kolobov.kirill@list.ru </a> </li>
-			<li> <em> Github: </em> <a href='https://github.com/kunansy' target="_blank" title="Github"> kunansy </a> </li>
+			<li> <span id="fieldName"> Phone: </span> <a href="tel:+79374112140" title="Phone"> +7 (937) 411-21-40 </a> </li>
+            <li> <span id="fieldName"> Email: </span> <a href="mailto:kolobov.kirill@list.ru" title="Email" content="Email"> kolobov.kirill@list.ru </a> </li>
+			<li> <span id="fieldName"> Github: </span> <a href='https://github.com/kunansy' target="_blank" title="Github"> kunansy </a> </li>
 		</ul>
-		<img src="https://a.radikal.ru/a11/2009/85/925f5badcf84.jpg" style="width: 300px; height: 400px;" alt="фото" title="фото" /> 
-	    
+
     	<h3> Проекты </h3>
         <details>
             <summary> API для Национального корпуса русского языка </summary>
@@ -55,7 +48,7 @@
             <tr> <td> Git </td>     <td> <progress max="100" value="80" title="80%"> </progress> </td> </tr>
          </table>
         
-         <h4 style="color: red;" align="right"> Оценивание </h4>
+         <h4> Оценивание </h4>
          <form name="assessment" align="right">
              <label for="design" title="Design is OK"> Дизайн </label> <input type="checkbox" id="design"/> <br />
              <label for="functionality" title="Functionality is OK"> Функциональность </label> <input type="checkbox" id="functionality"/> <br />
