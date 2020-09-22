@@ -1,0 +1,41 @@
+* {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-right: 0;
+    margin-left: 0;
+}
+.header {
+    text-align: center;
+    margin: 0;
+    font-weight: 550;
+    line-height: 35px;
+    background-color: rgba(64, 208, 208, .2);
+}
+.photo {
+    position: absolute;
+    right: 10px;
+    top: 10%;
+    width: 20%;
+}
+.assessment {
+    text-align: right;
+    color: #ea5339;
+}
+.det-link{
+    margin-bottom: 0;
+}
+.det-info{
+    margin: 0;
+}
+.personal-data{
+    height: 350px;
+}
+.rnc-api {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+li span {
+    font-weight: 550;
+}
+a {
+    text-decoration: none;
+}
