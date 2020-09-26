@@ -1,5 +1,6 @@
+# ЛР 4 to a file
 import random
-import sys
+from pathlib import Path
 from typing import List
 
 # skip the values in this range
@@ -9,6 +10,9 @@ WRONG_RANGE_STOP = -3
 # values will be generated in this range
 VALUE_START = -5
 VALUE_STOP = 5
+
+input_file = Path("task_2_input.txt")
+output_file = Path("task_2_output.txt")
 
 
 def number_of_min_element(sample: List[float]) -> int:
@@ -38,7 +42,6 @@ def index_of_first_negative(sample: List[float]) -> int:
     for index, item in enumerate(sample):
         if item < 0:
             return index
-
     return -1
 
 
@@ -89,14 +92,20 @@ def str_sample(sample: List[float],
 
 def main() -> None:
     try:
-        length = int(input("Enter the list length: "))
+        with input_file.open() as f:
+            angle = next(f)
+        length = int(angle)
         assert length <= 30
+    except FileNotFoundError:
+        print("File with input data not found",
+              file=output_file.open('w'))
+        return
     except ValueError:
-        print("Wrong input", file=sys.stderr)
+        print("Wrong input", file=output_file.open('w'))
         return
     except AssertionError:
         print("List length is expected to be less than 30",
-              file=sys.stderr)
+              file=output_file.open('w'))
         return
 
     sample = [
@@ -106,16 +115,21 @@ def main() -> None:
 
     num_of_min = number_of_min_element(sample)
     first_negative_index = index_of_first_negative(sample)
+    if first_negative_index is -1:
+        sum_of_abs_ = "oops, there is no negative element"
+    else:
+        sum_of_abs_ = sum_of_abs(sample[first_negative_index + 1:])
+        sum_of_abs_ = f"{sum_of_abs_:.1f}"
 
-    sum_of_abs_ = sum_of_abs(sample[first_negative_index + 1:])
     changed_sample = change_sample(sample)
 
-    print(f"Length: {length}")
-    print(f"Sample: \n{str_sample(sample)}")
+    with output_file.open('w', encoding='utf-8') as f:
+        f.write(f"Length: {length}\n")
+        f.write(f"Sample: \n{str_sample(sample)}\n")
 
-    print(f"Number of minimal by abs element: {num_of_min}")
-    print(f"Sum of abs of values after the first negative: {sum_of_abs_:.1f}")
-    print(f"Changed sample: \n{str_sample(changed_sample)}")
+        f.write(f"Number of minimal by abs element: {num_of_min}\n")
+        f.write(f"Sum of abs of values after the first negative: {sum_of_abs_}\n")
+        f.write(f"Changed sample: \n{str_sample(changed_sample)}")
 
 
 if __name__ == '__main__':

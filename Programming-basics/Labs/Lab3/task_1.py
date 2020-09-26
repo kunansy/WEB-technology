@@ -1,7 +1,17 @@
 import sys
 
-from Labs.Lab2.task_1 import f
 
+def f(x: float) -> float:
+    if x <= -2:
+        return -x - 2
+    elif x <= -1:
+        return (- x**2 - 2 * x)**0.5
+    elif x <= 1:
+        return 1.0
+    elif x <= 2:
+        return -2 * x + 3
+    return -1.0
+    
 
 def write(start: float, stop: float, step: float) -> None:
     print("+--------+--------+")

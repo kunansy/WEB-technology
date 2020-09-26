@@ -1,8 +1,16 @@
-from Labs.Lab2.task_2 import f
 import random
 
 R = 5
 
+
+def f(x: float, y: float, r: float) -> bool:
+    if x * y < 0:
+        return False
+
+    if x >= 0:
+        return x**2 + y**2 <= r**2
+    return y >= -r - x
+    
 
 def write_head() -> None:
     print("+--------+--------+--------+")
