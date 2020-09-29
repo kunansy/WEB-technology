@@ -2,12 +2,15 @@
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin-right: 0;
     margin-left: 0;
-    color: rgb(250, 230, 250);
+    color: white;
+    /*обводка вокруг букв*/
+    -webkit-text-stroke: .1px black;
 }
 body {
     background-image: url("../images/back-image.jpg");
     background-size: cover;
 }
+/*прослойка между фоном и текстом*/
 body > .layout {
     background-color: rgba(0, 0, 0, .1);
     margin: 0;
@@ -28,9 +31,12 @@ body > .layout {
     top: 11%;
     width: 20%;
     color: white;
+    border: 10px solid white;
 }
 div.assessment {
     text-align: right;
+}
+form > label {
     color: black;
 }
 h4.assessment {
@@ -55,20 +61,10 @@ li {
     margin-left: 0;
     padding: 0;
 }
-li span {
+li span, tr th, p span {
     font-weight: 550;
-    color: rgb(10, 10, 50);
-    -webkit-text-stroke: .5px blue;
-}
-tr th {
-    font-weight: 550;
-    color: rgb(10, 10, 50);
-    -webkit-text-stroke: 1px blue;
-}
-p span {
-    font-weight: 550;
-    color: rgb(10, 10, 50);
-    -webkit-text-stroke: 1px blue;
+    color: black;
+    -webkit-text-stroke: .1px red;
 }
 a {
     text-decoration: none;
@@ -86,4 +82,5 @@ hr {
 table {
     margin: auto;
     height: 300px;
+    /*border: 2px solid black;*/
 }
