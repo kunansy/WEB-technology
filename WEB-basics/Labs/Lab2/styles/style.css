@@ -1,0 +1,89 @@
+* {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-right: 0;
+    margin-left: 0;
+    color: rgb(250, 230, 250);
+}
+body {
+    background-image: url("../images/back-image.jpg");
+    background-size: cover;
+}
+body > .layout {
+    background-color: rgba(0, 0, 0, .1);
+    margin: 0;
+    padding: 0;
+}
+.header {
+    text-align: center;
+    margin: 0;
+    font-weight: 550;
+    line-height: 50px;
+    background-color: rgba(18, 2, 2, 0.2);
+    color: black;
+    text-transform: uppercase;
+}
+.photo {
+    position: absolute;
+    right: 10px;
+    top: 11%;
+    width: 20%;
+    color: white;
+}
+div.assessment {
+    text-align: right;
+    color: black;
+}
+h4.assessment {
+    color: rgb(120, 10, 100);
+    margin: 0;
+    padding: 0;
+}
+.det-link{
+    margin-bottom: 0;
+}
+.det-info{
+    margin: 0;
+}
+.personal-data{
+    height: 400px;
+}
+.rnc-api {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+li {
+    margin-left: 0;
+    padding: 0;
+}
+li span {
+    font-weight: 550;
+    color: rgb(10, 10, 50);
+    -webkit-text-stroke: .5px blue;
+}
+tr th {
+    font-weight: 550;
+    color: rgb(10, 10, 50);
+    -webkit-text-stroke: 1px blue;
+}
+p span {
+    font-weight: 550;
+    color: rgb(10, 10, 50);
+    -webkit-text-stroke: 1px blue;
+}
+a {
+    text-decoration: none;
+}
+a:hover {
+    color: black;
+}
+hr {
+    border: none;
+    background-color: black;
+    color: black;
+    margin-top: 0;
+    height: 3px;
+}
+table {
+    margin: auto;
+    height: 300px;
+}
