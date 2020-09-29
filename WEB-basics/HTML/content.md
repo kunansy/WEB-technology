@@ -46,12 +46,18 @@
 ### head
 Внутри пишется `title`. указывается `meta`, где прописана кодировка сайта
 ```html
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> – какая кодировка на сайте использована.
-<meta name="discription" content="Отображается в поисковике под названием" />
-<meta name="keywords" content="" /> – ключевые слова для поискового робота.
-<link href="" rel="stylesheet" type="text/css" /> – подключить стили из CSS скрипта.
-<script src=""> </script> – подключить скрипты JavaScript. 
-<link rel="icon" href="fav.ico" type="image" /> – добавить иконку вкладки.
+<!-- какая кодировка на сайте использована -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+<!-- отображается в поисковике под названием -->
+<meta name="discription" content="" />
+<!-- ключевые слова для поискового робота -->
+<meta name="keywords" content="" />
+<!-- подключить стили из CSS скрипта -->
+<link href="" rel="stylesheet" type="text/css" /> 
+<!-- подключить скрипты JavaScript -->
+<script src=""> </script>  
+<!-- добавить иконку вкладки -->
+<link rel="icon" href="fav.ico" type="image" /> 
 ```
 
 ### body
@@ -94,7 +100,7 @@
 ## Ссылки
 * Ссылка на другую страницу:
 ```html
-<a href="https://yandex.com" target="_blank" title="Yandex"> Yandex </a> – ссылка откроет сайт в новой вкладке, отобразит надпись при наведении.
+<a href="https://yandex.com" target="_blank" title="Yandex"> Yandex </a> – ссылка откроет сайт в новой вкладке.
 <a href="/etc/vim/"> Vim config </a>
 ```
 * Ссылка на блок на текущей странице:
@@ -212,7 +218,7 @@ input type="text; ввод текста" value="по умолчанию запо
 </select> 
 ```
 
-## Спец-тэги из HTML5
+## Семантические тэги HTML5
 * `header` – в нём заключена шапка сайта.
 * `footer` – в нём заключён низ сайта.
 * `article` – статья, пост, новость...
@@ -283,11 +289,11 @@ input type="text; ввод текста" value="по умолчанию запо
 
 
 ## Поток и блочная модель
-Порядок расположения элементов на странице - **поток**.
+Порядок расположения элементов на странице – **поток**.
 <br />
 
 По умолчанию `div`, `header`, `section`, `h`, `p` занимают всю 
-ширину своего родителя - **блочные элементы**.
+ширину своего родителя – **блочные элементы**.
 
 
 ### Модель любого блочного элемента
