@@ -90,31 +90,35 @@ def str_sample(sample: List[float],
 def main() -> None:
     try:
         length = int(input("Enter the list length: "))
-        assert length <= 30
+        assert 0 < length <= 30
     except ValueError:
         print("Wrong input", file=sys.stderr)
         return
     except AssertionError:
-        print("List length is expected to be less than 30",
+        print("List length is expected to be in (0; 30]",
               file=sys.stderr)
         return
 
     sample = [
-        random.uniform(-5, 5)
+        random.uniform(VALUE_START, VALUE_STOP)
         for _ in range(length)
     ]
 
     num_of_min = number_of_min_element(sample)
     first_negative_index = index_of_first_negative(sample)
+    if first_negative_index == -1:
+        sum_of_abs_ = "oops, there is no negative element"
+    else:
+        sum_of_abs_ = sum_of_abs(sample[first_negative_index + 1:])
+        sum_of_abs_ = f"{sum_of_abs_:.1f}"
 
-    sum_of_abs_ = sum_of_abs(sample[first_negative_index + 1:])
     changed_sample = change_sample(sample)
 
     print(f"Length: {length}")
     print(f"Sample: \n{str_sample(sample)}")
 
     print(f"Number of minimal by abs element: {num_of_min}")
-    print(f"Sum of abs of values after the first negative: {sum_of_abs_:.1f}")
+    print(f"Sum of abs of values after the first negative: {sum_of_abs_}")
     print(f"Changed sample: \n{str_sample(changed_sample)}")
 
 
