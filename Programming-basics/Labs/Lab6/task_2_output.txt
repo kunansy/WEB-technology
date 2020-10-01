@@ -1,7 +1,7 @@
 Length: 4
 Sample: 
-1.2, 3.4, -3.2, 2.5
+-0.7, -2.3, 2.4, 2.5
 Number of minimal by abs element: 1
-Sum of abs of values after the first negative: 2.5
+Sum of abs of values after the first negative: 7.2
 Changed sample: 
-1.2, 3.4, 2.5, 0.0
+-0.7, -2.3, 2.4, 2.5

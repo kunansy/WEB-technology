@@ -115,7 +115,7 @@ def main() -> None:
 
     num_of_min = number_of_min_element(sample)
     first_negative_index = index_of_first_negative(sample)
-    if first_negative_index is -1:
+    if first_negative_index == -1:
         sum_of_abs_ = "oops, there is no negative element"
     else:
         sum_of_abs_ = sum_of_abs(sample[first_negative_index + 1:])

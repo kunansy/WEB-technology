@@ -1,4 +1,4 @@
-# ЛР to a file
+# ЛР 1 to a file
 import math
 from pathlib import Path
 
@@ -8,7 +8,7 @@ output_file = Path("task_1_output.txt")
 
 def main():
     try:
-        with input_file.open('r') as inp:
+        with input_file.open() as inp:
             angle = next(inp)
         angle_in_gradus = float(angle)
     except FileNotFoundError:
