@@ -25,13 +25,14 @@ body > .layout {
     color: black;
     text-transform: uppercase;
 }
-.photo {
+.photo img {
     position: absolute;
     right: 10px;
     top: 11%;
     width: 20%;
     color: white;
     border: 10px solid white;
+    border-radius: 50px;
 }
 div.assessment {
     text-align: right;
