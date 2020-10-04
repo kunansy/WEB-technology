@@ -16,6 +16,17 @@ body > .layout {
     margin: 0;
     padding: 0;
 }
+.head {
+    background-color: black;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+.head-text {
+    margin: auto;
+    color: white;
+}
 .header {
     text-align: center;
     margin: 0;
@@ -84,4 +95,17 @@ table {
     margin: auto;
     height: 300px;
     /*border: 2px solid black;*/
+}
+
+.footer {
+    background-color: black;
+    display: flex;
+    height: 150px;
+    margin-bottom: 0;
+}
+
+.footer-text {
+    color: white;
+    margin: auto;
+    font-size: 24px;
 }

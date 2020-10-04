@@ -2,77 +2,78 @@
 <html>
     <head>
 	<title> Визитка. Колобов Кирилл </title>
-        <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" lang="ru"/>
-		<meta name="description" content="Лабораторная работа №1, визитная карточка" />
-        <meta name="author" content="Колобов Кирилл"/>
-        <meta name="keywords" content="визитка, HTML, обучение"/>
-        <link rel="stylesheet" type="text/css" href="styles/style.css">
+      <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" lang="ru"/>
+      <meta name="description" content="Лабораторная работа №1, визитная карточка" />
+      <meta name="author" content="Колобов Кирилл"/>
+      <meta name="keywords" content="визитка, HTML, обучение"/>
+      <link rel="stylesheet" type="text/css" href="styles/style.css">
     </head>
 	<body>
-        <div class="layout">
-            <div class="personal-data">
-              <h3 class="header"> Личные данные </h3>
-              <hr />
-              <ul>
-                <li> <span title="Фамилия, имя, отчество"> ФИО: </span> Колобов Кирилл Витальевич </li>
-                <li> <span> Дата рождения:</span>       30.07.2002 </li>
-                <li> <span> Адрес:</span> <address>     г. Москва, ул. Малая Семёновская 12-1488Б </address>  </li>
-                <li> <span> Семейное положение:</span>  холост </li>
-                <li> <span> Вредных привычек</span>     не имею </li>
-                <li> <span> В свободное время:</span>   занимаюсь самообразованием, изучаю новые технологии </li>
-              </ul>
+    <div class="layout">
+      <div class="personal-data">
+        <h3 class="header"> Личные данные </h3>
+        <hr />
+        <ul>
+          <li> <span title="Фамилия, имя, отчество"> ФИО: </span> Колобов Кирилл Витальевич </li>
+          <li> <span> Дата рождения:</span>       30.07.2002 </li>
+          <li> <span> Адрес:</span> <address>     г. Москва, ул. Малая Семёновская 12-1488Б </address>  </li>
+          <li> <span> Семейное положение:</span>  холост </li>
+          <li> <span> Вредных привычек</span>     не имею </li>
+          <li> <span> В свободное время:</span>   занимаюсь самообразованием, изучаю новые технологии </li>
+        </ul>
+      </div>
+      <div class="photo">
+        <img src="https://a.radikal.ru/a11/2009/85/925f5badcf84.jpg" alt="фото" title="фото"/>
+      </div>
 
-            </div>
+      <div class="contact-data">
+        <h3 class="header"> Контактные данные </h3>
+        <hr />
+        <ul>
+          <li> <span> Phone: </span> <a href="tel:+79374112140" title="Phone"> +7 (937) 411-21-40 </a> </li>
+          <li> <span> Email: </span> <a href="mailto:kolobov.kirill@list.ru" title="Email" content="Email"> kolobov.kirill@list.ru </a> </li>
+          <li> <span> Github: </span> <a href='https://github.com/kunansy' target="_blank" title="Github"> kunansy </a> </li>
+        </ul>
+      </div>
 
-            <div class="photo">
-                <img src="https://a.radikal.ru/a11/2009/85/925f5badcf84.jpg" alt="фото" title="фото"/>
-            </div>
+      <div class="projects">
+        <h3 class="header"> Проекты </h3>
+        <hr />
+        <details class="rnc-api">
+          <summary> API для Национального корпуса русского языка </summary>
+          <p class="det-link"> <span> Ссылка: </span> <a href="https://github.com/kunansy/RNC" title="RNC" target="_blank"> RNC </a> </p>
+          <p class="det-info"> <span> Цель: </span> модуль по получению примеров употребления слова в контексте из проекта «Словарный запас» перерос в самостоятельный проект.</p>
+         </details>
+       </div>
 
-            <div class="contact-data">
-              <h3 class="header"> Контактные данные </h3>
-              <hr />
-              <ul>
-                <li> <span> Phone: </span> <a href="tel:+79374112140" title="Phone"> +7 (937) 411-21-40 </a> </li>
-                <li> <span> Email: </span> <a href="mailto:kolobov.kirill@list.ru" title="Email" content="Email"> kolobov.kirill@list.ru </a> </li>
-                <li> <span> Github: </span> <a href='https://github.com/kunansy' target="_blank" title="Github"> kunansy </a> </li>
-              </ul>
-            </div>
+      <div class="knowledge">
+        <h3 class="header"> Навыки </h3>
+        <hr />
+        <table>
+          <tr>
+            <th> Технологии </th>
+            <th> Уровень </th>
+          </tr>
+          <tr> <td> Python </td>  <td> <progress max="100" value="95" title="95%"> </progress> </td> </tr>
+          <tr> <td> C++ </td>     <td> <progress max="100" value="80" title="80%"> </progress> </td> </tr>
+          <tr> <td> SQL </td>     <td> <progress max="100" value="80" title="80%"> </progress> </td> </tr>
+          <tr> <td> Git </td>     <td> <progress max="100" value="80" title="80%"> </progress> </td> </tr>
+         </table>
+      </div>
 
-            <div class="projects">
-              <h3 class="header"> Проекты </h3>
-              <hr />
-              <details class="rnc-api">
-                <summary> API для Национального корпуса русского языка </summary>
-                <p class="det-link"> <span> Ссылка: </span> <a href="https://github.com/kunansy/RNC" title="RNC" target="_blank"> RNC </a> </p>
-                <p class="det-info"> <span> Цель: </span> модуль по получению примеров употребления слова в контексте из проекта «Словарный запас» перерос в самостоятельный проект.</p>
-              </details>
-            </div>
-
-            <div class="knowledge">
-              <h3 class="header"> Навыки </h3>
-              <hr />
-              <table>
-                <tr>
-                    <th> Технологии </th>
-                    <th> Уровень </th>
-                </tr>
-                <tr> <td> Python </td>  <td> <progress max="100" value="95" title="95%"> </progress> </td> </tr>
-                <tr> <td> C++ </td>     <td> <progress max="100" value="80" title="80%"> </progress> </td> </tr>
-                <tr> <td> SQL </td>     <td> <progress max="100" value="80" title="80%"> </progress> </td> </tr>
-                <tr> <td> Git </td>     <td> <progress max="100" value="80" title="80%"> </progress> </td> </tr>
-               </table>
-            </div>
-
-            <div class="assessment">
-                <h4 class="assessment"> Оценивание </h4>
-                <form name="assessment">
-                    <label title="Design is OK"> Дизайн <input type="checkbox"/> </label> <br />
-                    <label title="Functionality is OK"> Функциональность <input type="checkbox"/> </label> <br />
-                    <label title="The site is informative"> Информативность <input type="checkbox"> </label> <br />
-                    <label title="And his mark is..."> Оценка: <input type="number" value="100000000000"/> </label> <br />
-                    <input type="submit" name="Подтвердить" title="Submit the assessment"/> <br />
-                </form>
-            </div>
-        </div>
+      <div class="assessment">
+        <h4 class="assessment"> Оценивание </h4>
+        <form name="assessment">
+          <label title="Design is OK"> Дизайн <input type="checkbox"/> </label> <br />
+          <label title="Functionality is OK"> Функциональность <input type="checkbox"/> </label> <br />
+          <label title="The site is informative"> Информативность <input type="checkbox"> </label> <br />
+          <label title="And his mark is..."> Оценка: <input type="number" value="100000000000"/> </label> <br />
+          <input type="submit" name="Подтвердить" title="Submit the assessment"/> <br />
+        </form>
+      </div>
+    </div>
+    <footer class="footer">
+      <h4 class="footer-text"> ШУЕ ППШ </h4>
+    </footer>
 	</body>
 </html>
