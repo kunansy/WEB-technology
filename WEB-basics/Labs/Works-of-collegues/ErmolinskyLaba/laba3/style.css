@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  padding-top: 150px;
+  text-align: center;
+}
+
+h1 {
+  text-shadow: 0px 0px 30px rgba(150, 248, 150, 1);
+  word-wrap: break-word;
+  background: rgba(233, 10, 91, 0.5);
+  transition: .3s;
+  text-align: center;
+  margin: 0 auto;
+}
+
+h1:hover {
+  transform: scale(1.4);
+  background: #000;
+  color: #fff;
+  max-width: 100px;
+}
+
+.linear {
+  background: linear-gradient(#fff, #000);
+  color: #fff;
+}
+.radial {
+  background: radial-gradient(#fff, #000);
+}
+
+#res {
+  resize: horizontal;
+}
+
+#kvadrat {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient( purple, orange, green);
+  animation: 2s ease-in-out infinite roll;
+}
+#krug {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient( black, gray, yellow);
+  animation: 3s ease-in-out infinite roll-circle;
+}
+
+@keyframes roll {
+  50% {
+    
+    transform: translateX(200px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes roll-circle {
+  50% {
+    transform: translateX(400px) scale(1.5);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.cols {
+  column-count: auto;
+  column-width: 200px;
+  column-gap: 100px;
+  column-rule: 1px solid #000;
+}
+
+section {
+  max-width: 600px;
+  text-align: center;
+}
+.container {
+  perspective: 500px;
+  margin: 0 40px;
+  background: rgba(195,209,212, .7);
+}
+.style-flat {
+  transform-style: flat;
+}
+.flip {
+  height: 160px;
+  transform: rotateY(45deg);
+  background: #120a8f;
+  -webkit-animation: rotate 5s infinite;
+  animation: rotate 5s infinite;
+}
+.reverse .flip {
+  transform: rotateY(-45deg);
+}
+@keyframes rotate {
+  50% {
+    transform: none;
+    }
+}

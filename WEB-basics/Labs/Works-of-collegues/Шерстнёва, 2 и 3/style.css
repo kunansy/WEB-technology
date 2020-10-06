@@ -1,0 +1,153 @@
+/* * {
+	margin: 0;
+	padding: 0;
+} */
+
+body {
+	background-color: darkblue;
+	color: white;
+	min-width: 200px;
+	margin: 50px 200px 50px;
+	font-size: 18px;
+}
+
+header {
+	text-align: center;
+	margin-bottom: 100px;
+}
+
+h2 {
+	text-decoration: underline;
+}
+
+p {
+	line-height: 20px;
+	word-wrap: break-word;
+}
+
+section {
+	margin-bottom: 80px;
+}
+
+a {
+	text-decoration: none;
+}
+
+section:first-child p,
+section:first-child h2 {
+	text-align: right;
+}
+
+.photo {
+	border: 2px solid paleturquoise;
+	float: right;
+	margin-left: 30px;
+	margin-bottom: 30px;
+}
+
+li {
+	list-style: circle;
+}
+
+li:first-child,
+li:nth-child(6) {
+	list-style: disc;
+}
+
+li:first-child a:hover {
+	text-transform: uppercase;
+	text-decoration: none;
+	color: lightpink;
+}
+
+li:nth-child(6) a:hover {
+	color: yellow;
+	border: 3px solid yellow;
+}
+
+table {
+	margin-bottom: 80px;
+}
+
+td {
+	padding: 5px 20px 5px;
+}
+
+a,
+a:visited {
+	color: white;
+}
+
+a:hover {
+	color: paleturquoise;
+}
+
+a > img {
+	width: 100px;
+	border: none;
+	float: left;
+	margin-right: 20px;
+}
+
+span {
+	line-height: 100px;
+}
+
+form label {
+	float: left;
+	width: 30%;
+}
+
+textarea {
+	resize: vertical;
+}
+
+button {
+	padding: 5px 10px;
+}
+
+.with-rgba {
+	width: 100%;
+	padding: 30px 10px;
+	background-color: rgba(255, 255, 255, 0.1);
+	border: 2px dotted darkmagenta;
+	margin-bottom: 100px;
+}
+
+.shadow {
+	font-size: 32px;
+	text-shadow: 10px 8px 3px darkmagenta;
+}
+
+.column {
+	column-count: 2;
+	column-gap: 80px;
+	column-width: 100px;
+	column-rule: 5px dotted darkmagenta;
+}
+
+.linear-gr {
+	background: linear-gradient(to top left, #41008b, #ff00ff);
+	height: 200px;
+	width: 400px;
+	float: left;
+	margin-bottom: 200px;
+	transition: all 1.5s ease;
+}
+
+.linear-gr:hover {
+	transform: scaleX(-1);
+}
+
+.radial-gr {
+	height: 200px;
+	width: 400px;
+	float: right;
+	background: radial-gradient(at bottom, #ff5100, #fbff00);
+	transition: 0.5s ease-out;
+	margin-bottom: 200px;
+}
+
+.radial-gr:hover {
+	transform: skewY(50deg);
+}

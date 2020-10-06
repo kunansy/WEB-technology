@@ -1,0 +1,178 @@
+
+
+h1 { 
+    text-align: center
+}
+.linkVk:hover{
+    background: crimson;
+    color: #ffe;
+    font-size: 25px;
+}
+.linkWitcher:active{
+    background: white;
+    color:green;
+    font-size: 25px;
+    transition-timing-function: linear;
+}
+.linkNier:active{
+    background: white;
+    color:green;
+    font-size: 25px;
+    transition-timing-function: ease-in-out    
+}
+.linkDoom:active{
+    background: white;
+    color:green;
+    font-size: 25px;    
+}
+h1{
+    margin-bottom: 0;
+    text-shadow: 1px 1px 2px black, 0 0 1em red; 
+    color: white; 
+    word-wrap: break-word;
+    animation: shadow  2s infinite ease-in-out;
+}
+p{
+    text-align: justify;
+    text-indent: 1%;
+}
+li{
+    float:left;
+    list-style: url("Медальон.jpg") inside;
+    background-size: 10px;
+    margin-right: 3px;
+}
+body{
+    font-size: 20px;
+}
+fieldset{
+    color: rgba(255,0,0,1);
+}
+input.txt {
+    color: #00008B;
+    background-color: #E3F2F7;
+    border: 1px inset #00008B;
+    width: 200px;
+}
+#btnSubmit {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+}
+form div {
+    clear: left;
+    margin: 0;
+    padding: 0;
+    padding-top: 5px;
+}
+form div label {
+    float: left;
+    width: 20%;
+    font: bold 0.9em Arial, Helvetica, sans-serif;
+}
+legend {
+    font: bold 0.8em Arial, Helvetica, sans-serif;
+    color: #00008B;
+    background-color: #FFFFFF;
+}
+.myFace{
+    float: left;
+
+}
+.block{
+    display: inline-block;
+}
+.inline{
+    display: inline;
+}
+#navbar a {
+    background-color: #949494;
+    color:black;
+    padding: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    border-left: 5px solid #33ADFF;
+    display: block;
+  }
+  #navbar li {
+    border-left: 10px solid #666;
+    border-bottom: 1px solid #666;
+  }
+.main{
+    background: linear-gradient(to top, #fefcea, #f1da36);
+}
+.games{
+    background: radial-gradient(farthest-side, #f9eec7, #ffb60f, #ffb60f);
+    animation: pulsing 2s infinite;
+}
+.table{
+    column-count: 3;
+    column-gap: 0;
+    column-width: 200px;
+    column-rule: 1px solid #ccc;
+    box-sizing: inherit;
+}
+textarea { resize: both; }
+#two:hover{
+    -o-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+#q:hover{
+    -ms-transform: rotate(20deg); 
+    -webkit-transform: rotate(20deg); 
+    transform: rotate(20deg);
+}
+#w:hover{
+    height: 160px;
+    transform: rotateX(45deg);
+    border-radius: 5px;
+    background: rgba(169,90,145, .8);
+    -webkit-animation: rotate 5s infinite;
+    animation: rotate 5s infinite;
+}
+#e:hover{
+    perspective: 500px;
+    margin: 0 40px;
+    background: rgba(195,209,212, .7);
+    border-radius: 5px;
+}
+#e:hover{
+    transition-timing-function: linear
+}
+@keyframes shadow {
+    from {text-shadow: 0 0 3px black;}
+    50% {text-shadow: 0 0 30px black;}
+    to {text-shadow: 0 0 3px black;}
+}
+@keyframes pulsing {
+    0% {
+      -webkit-transform: scale(0.5, 0.5);
+      transform: scale(0.5, 0.5)
+    }
+    50% {
+      -webkit-transform: scale(1.0, 1.0);
+      transform: scale(1.0, 1.0);
+    }
+    100% {
+      -webkit-transform: scale(0.5, 0.5);
+      transform: scale(0.5, 0.5);
+    }
+}
+.body-container {
+    position: relative;
+    z-index: 10;
+}
+.body-background {
+    position: fixed;
+    z-index: 9;
+    width: 100%;
+    height: 100%;
+    background: url('Fon.jpg');
+    background-position: 50px;
+    background-position: 0 -300px;
+    background-size: cover;
+    opacity: .5;
+}
