@@ -1,24 +1,18 @@
-Matrix 5 * 5
-[1, 0, 0, 1, 1]
-[-1, 1, -1, 1, 1]
-[-1, 0, -1, 0, 1]
-[0, 1, 0, 1, 0]
-[-1, 0, 0, -1, 1]
-Num of the first row with a positive item: 1
+Matrix 3 * 1
+[-1]
+[-1]
+[1]
+Num of the first row with a positive item: 3
 ____________________
-Matrix 5 * 5
-[1, 0, 0, 1, 1]
-[-1, 1, -1, 1, 1]
-[-1, 0, -1, 0, 1]
-[0, 1, 0, 1, 0]
-[-1, 0, 0, -1, 1]
-Num of the first row with a positive item: 1
+Matrix 3 * 1
+[-1]
+[-1]
+[1]
+Num of the first row with a positive item: 3
 ____________________
-Matrix 5 * 5
-[1, 0, 0, 1, 1]
-[-1, 1, -1, 1, 1]
-[-1, 0, -1, 0, 1]
-[0, 1, 0, 1, 0]
-[-1, 0, 0, -1, 1]
-Num of the first row with a positive item: 1
+Matrix 3 * 1
+[-1]
+[-1]
+[1]
+Num of the first row with a positive item: 3
 ____________________

@@ -161,7 +161,7 @@ class Matrix:
 def main() -> None:
     try:
         with input_path.open() as f:
-            size = next(f).strip()
+            size = next(f).split()
         size = list(map(int, size))
         assert 0 < len(size) <= 2
         assert all(i > 0 for i in size)
