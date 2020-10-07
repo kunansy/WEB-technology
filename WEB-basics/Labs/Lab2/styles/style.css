@@ -10,6 +10,7 @@
 body {
     background-image: url("../images/back-image.jpg");
     background-size: cover;
+    margin-bottom: 0;
 }
 /*прослойка между фоном и текстом*/
 body > .layout {
@@ -25,43 +26,31 @@ body > .layout {
     background-color: rgba(18, 2, 2, 0.2);
     color: black;
     text-transform: uppercase;
+    text-decoration: underline black;
 }
 .photo img {
     position: absolute;
     right: 10px;
-    top: 11%;
+    top: 19%;
     width: 20%;
-    color: white;
     border: 10px solid white;
     border-radius: 50px;
 }
 div.assessment {
     text-align: right;
 }
-.asses {
-    color: black;
-}
 h4.assessment {
     color: rgb(120, 10, 100);
     margin: 0;
-    padding: 0;
 }
-.det-link{
-    margin-bottom: 0;
+form div {
+    padding: 5px 0 0;
 }
-.det-info{
-    margin: 0;
+.det-link, .det-info{
+    padding-left: 10px;
 }
 .personal-data{
     height: 400px;
-}
-.rnc-api {
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-li {
-    margin-left: 0;
-    padding: 0;
 }
 li span, tr th, p span {
     font-weight: 550;
@@ -70,21 +59,19 @@ li span, tr th, p span {
 }
 a {
     text-decoration: none;
+    display: block;
+    transition: .5s;
 }
 a:hover {
-    color: black;
+    transform: scale(1.1);
+    color: white;
+    background: black;
+    max-width: 300px;
 }
 a#rnc {
     font-size: 20px;
 }
-hr {
-    border: none;
-    background-color: black;
-    color: black;
-    height: 3px;
-    margin: auto;
-    width: 300px;
-}
+
 ul {
     list-style-type: none;
 }
@@ -97,12 +84,73 @@ table {
     background-color: black;
     display: flex;
     height: 300px;
-    margin: 0;
-    padding: 0;
-    border: 0;
 }
 .footer-text {
     color: white;
     margin: auto;
     font-size: 24px;
 }
+/* navigation bar */
+div.nav-bar {
+    max-height: 50px;
+    overflow: auto;
+    max-width: 550px;
+    background-color: white;
+    font-size: 15px;
+    border: 2px solid rgba(255, 77, 77, .5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    display: flex;
+    margin-right: auto;
+}
+nav ul{
+    display: flex;
+    list-style: none;
+}
+nav ul li {
+    margin-right: 10px;
+}
+nav ul li a {
+    color: black;
+}
+nav ul li:first-child {
+    background-color: red;
+}
+/* block to inline */
+p.block-to-inline {
+    display: inline;
+}
+div.block-to-inline {
+    margin: auto;
+    height: 50px;
+    background-color: #79b172;
+    text-align: center;
+}
+/* text up the image */
+div.text-up-the-image {
+    height: 300px;
+    text-align: center;
+    float: right;
+    display: flex;
+    background: url(../images/animal.jpeg) center no-repeat;
+    background-size: contain;
+    border: 2px solid white;
+    border-radius: 15px;
+    margin-left: auto;
+}
+p.text-up-the-image {
+    font-family: "Comic Sans MS", Helvetica, sans-serif;
+    color: black;
+    text-shadow: 1px 1px 5px black;
+    display: flex;
+    margin: auto;
+}
+p.cpp-info {
+    margin: 0 5px 0 5px;
+}
+section.redundant-info {
+    background-color: grey;
+}
+section.redundant-info:hover {
+    background-color: transparent;
+}
+

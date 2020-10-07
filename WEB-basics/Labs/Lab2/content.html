@@ -7,12 +7,30 @@
       <meta name="author" content="Колобов Кирилл">
       <meta name="keywords" content="визитка, HTML, обучение">
       <link rel="stylesheet" type="text/css" href="styles/style.css">
+      <style>
+          input[type="submit"] {
+            color: black;
+            border: none;
+            outline: none;
+            background: unset;
+          }
+      </style>
     </head>
 	<body>
+    <div class="nav-bar">
+      <nav>
+        <ul>
+          <li> <a href="#personal-data"> Личные данные </a> <li>
+          <li> <a href="#contact-data"> Контактные данные </a> </li>
+          <li> <a href="#projects"> Проекты </a></li>
+          <li> <a href="#knowledge"> Шо я могу (всё) </a> </li>
+        </ul>
+      </nav>
+    </div>
     <div class="layout">
       <div class="personal-data">
+        <a id="personal-data"> </a>
         <h3 class="header"> Личные данные </h3>
-        <hr />
         <ul>
           <li> <span title="Фамилия, имя, отчество"> ФИО: </span> Колобов Кирилл Витальевич </li>
           <li> <span> Дата рождения:</span>       30.07.2002 </li>
@@ -27,8 +45,8 @@
       </div>
 
       <div class="contact-data">
+        <a id="contact-data"> </a>
         <h3 class="header"> Контактные данные </h3>
-        <hr />
         <ul>
           <li> <span> Phone: </span> <a href="tel:+79374112140" title="Phone"> +7 (937) 411-21-40 </a> </li>
           <li> <span> Email: </span> <a href="mailto:kolobov.kirill@list.ru" title="Email" content="Email"> kolobov.kirill@list.ru </a> </li>
@@ -37,8 +55,8 @@
       </div>
 
       <div class="projects">
+        <a id="projects"> </a>
         <h3 class="header"> Проекты </h3>
-        <hr />
         <details class="rnc-api">
           <summary> API для Национального корпуса русского языка </summary>
           <p class="det-link"> <span> Ссылка: </span> <a href="https://github.com/kunansy/RNC" id="rnc" title="RNC" target="_blank"> RNC </a> </p>
@@ -47,8 +65,8 @@
        </div>
 
       <div class="knowledge">
+        <a id="knowledge"> </a>
         <h3 class="header"> Навыки </h3>
-        <hr />
         <table>
           <tr>
             <th> Технологии </th>
@@ -64,13 +82,44 @@
       <div class="assessment">
         <h4 class="assessment"> Оценивание </h4>
         <form name="assessment">
-          <label title="Design is OK"> Дизайн <input type="checkbox"/> </label> <br />
-          <label title="Functionality is OK"> Функциональность <input type="checkbox"/> </label> <br />
-          <label title="The site is informative"> Информативность <input type="checkbox"> </label> <br />
-          <label title="And his mark is..."> Оценка: <input type="number" value="100000000000" class="asses"/> </label> <br />
-          <input type="submit" name="Подтвердить" title="Submit the assessment" class="asses"/> <br />
+          <label title="Design is OK"> Дизайн <input type="checkbox"> </label> <br>
+          <label title="Functionality is OK"> Функциональность <input type="checkbox"> </label> <br>
+          <label title="The site is informative"> Информативность <input type="checkbox"> </label> <br>
+          <div><label title="And his mark is..."> Оценка: <input type="number" value="100000000000" style="color: black;"> </label> </div>
+          <div><label title="Your name"> Имя: <input name="a"></label></div>
+          <div><label title="Your surname"> Фамилия: <input name="a"></label></div>
+          <input type="submit" name="Подтвердить" title="Submit the assessment" > <br >
         </form>
       </div>
+
+      <div class="block-to-inline">
+        <p class="block-to-inline"> Блок текста, <p class="block-to-inline"> ставший строкой </p> </p>
+      </div>
+
+      <section class="redundant-info">
+        <div class="text-up-the-image">
+          <p class="text-up-the-image"> Здесь могла быть ваша реклама </p>
+        </div>
+          <p class="cpp-info">
+            C++ — компилируемый, статически типизированный язык программирования общего назначения.
+            <br> <br>
+
+            Поддерживает такие парадигмы программирования, как процедурное программирование,
+            объектно-ориентированное программирование, обобщённое программирование. Язык имеет богатую
+            стандартную библиотеку, которая включает в себя распространённые контейнеры и алгоритмы,
+            ввод-вывод, регулярные выражения, поддержку многопоточности и другие возможности. C++
+            сочетает свойства как высокоуровневых, так и низкоуровневых языков. В сравнении с его
+            предшественником — языком C — наибольшее внимание уделено поддержке объектно-ориентированного и
+            обобщённого программирования.
+            <br> <br>
+
+            Синтаксис C++ унаследован от языка C. Одним из принципов разработки было сохранение
+            совместимости с C. Тем не менее C++ не является в строгом смысле надмножеством C;
+            множество программ, которые могут одинаково успешно транслироваться как компиляторами
+            C, так и компиляторами C++, довольно велико, но не включает все возможные программы на C.
+          </p>
+      </section>
+
     </div>
     <footer class="footer">
       <h4 class="footer-text"> ШУЕ ППШ </h4>
