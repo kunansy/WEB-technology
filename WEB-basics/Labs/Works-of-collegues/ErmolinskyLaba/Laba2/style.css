@@ -51,6 +51,9 @@ a:hover {
   transform: scale(1.2);
   color: #fff;
   background: #000;
+  max-width: 300px;
+  overflow: auto;
+  padding: auto;
 }
 
 .image {
