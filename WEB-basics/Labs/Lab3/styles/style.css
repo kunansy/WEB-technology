@@ -8,15 +8,29 @@
     line-height: normal;
 }
 body {
-    background-image: url("../images/back-image.jpg");
+    background-image: url("../images/back.jpg");
     background-size: cover;
     margin-bottom: 0;
 }
 /*прослойка между фоном и текстом*/
 body > .layout {
-    background-color: rgba(0, 0, 0, .1);
+    background-color: rgba(0, 0, 0, .2);
     margin: 0;
     padding: 0;
+}
+@keyframes border-colors {
+    from {border-color: white; border-radius: 15px}
+    25% {border-color: #72f5a8; border-radius: 25px;}
+    50% {border-color: #ff5555; border-radius: 15px;}
+    75% {border-color: #00ff0c; border-radius: 5px;}
+    to {border-color: pink; border-radius: 12px;}
+}
+@keyframes background-colors {
+    from {background-color: white;}
+    25% {background-color: black;}
+    50% {background-color: red;}
+    75% {background-color: green;}
+    to {background-color: pink;}
 }
 .header {
     text-align: center;
@@ -35,13 +49,37 @@ body > .layout {
     width: 20%;
     border: 10px solid white;
     border-radius: 50px;
+    animation: border-colors 5s ease-in-out infinite alternate;
 }
 div.assessment {
     text-align: right;
 }
+textarea.area {
+    resize: horizontal;
+    color: black;
+    height: 80px;
+    width: 250px;
+    overflow: hidden;
+}
 h4.assessment {
     color: rgb(120, 10, 100);
     margin: 0;
+    padding: 0;
+
+}
+h4.radial-gradient {
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(#e906ff, #003fff);
+    text-align: center;
+}
+h4.linear-gradient {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 5px !important;
+    background: linear-gradient(#0022ea, #f50024);
+    color: #fff;
+    text-align: center;
 }
 form div {
     padding: 5px 0 0;
@@ -51,6 +89,7 @@ form div {
 }
 .personal-data{
     height: 400px;
+    box-sizing: border-box;
 }
 li span, tr th, p span {
     font-weight: 550;
@@ -118,6 +157,10 @@ nav ul li:first-child {
 /* block to inline */
 p.block-to-inline {
     display: inline;
+    transition: color .1s ease .1s;
+}
+p.block-to-inline:hover {
+    color: red;
 }
 div.block-to-inline {
     margin: auto;
@@ -136,6 +179,8 @@ div.text-up-the-image {
     border: 2px solid white;
     border-radius: 15px;
     margin-left: auto;
+    animation: background-colors .2s ease-in-out infinite alternate;
+    box-sizing: border-box;
 }
 p.text-up-the-image {
     font-family: "Comic Sans MS", Helvetica, sans-serif;
@@ -146,6 +191,7 @@ p.text-up-the-image {
 }
 p.cpp-info {
     margin: 0 5px 0 5px;
+
 }
 section.redundant-info {
     background-color: grey;
