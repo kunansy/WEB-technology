@@ -266,3 +266,79 @@ cursor: ;
 * id: 0, 1, 0, 0
 * class: 0, 0, 1, 0
 * Для каждого элемента и псевдоэлемента: 0, 0, 0, 1
+
+
+## Переходы
+Определяется: 
+* `transition-property` – какое свойство нужно менять
+* `transition-duratuoin` – время изменения
+* `transition-timing-function` – способ ускорения перехода: 
+`ease | linear | ease-in | ease-out | ease-in-out | step-start | step-end | steps`
+* `transition-delay` – будет ли пауза перед началом перехода 
+```css
+.block {
+    color: red;
+    transition-property: color;
+    transition-duration: .5s;
+}
+.block:hover {
+    color: white;
+}
+```
+
+### Полный синтаксис
+```css
+.block {
+    transition: background-color .3s ease .5s;
+}
+```
+
+## Функции преобразования
+* `rotate()`
+* `rotateX()`
+* `rotateY()` 
+* `rotateZ()`  
+* `rotate3d()` 
+* `translate()` 
+* `translateX()`
+* `translateY()`
+* `scale()`
+* `scaleX()`
+* `scaleY()`
+* `skew()`
+* `skewX()`
+* `skewY()`
+* `none`
+
+## Анимации
+### Две части анимации
+* Задание ключевых кадров через `@keyframes <name>`
+* Добавление свойств для анимированного элемента
+```css
+@keyframes colors {
+    0% {background-color: red;}
+    30% {background-color: pink;}
+    50% {background-color: white;}
+    70% {background-color: grey;}
+    100% {background-color: black;}    
+}
+.block {
+    animation-name: colors;
+    animation-duration: 5s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+```
+
+### Свойства анимации
+* `animation-name` – имя анимации, созданной через `@keyframes`
+* `animation-duration` – длительность анимации
+* `animation-direction` – 
+* `animation-iteration-count` – 
+
+### Сокращённая форма
+```css
+.block {
+    animation: colors 5s ease-in-out infinite alternate;
+}
+```
