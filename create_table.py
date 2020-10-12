@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 from pathlib import Path
 from typing import List
 
@@ -37,9 +38,36 @@ def dump_chapters(chapters: List[str],
             f.write(f"{line}\n")
 
 
+def tree(startpath: str = '.',
+         baseindent: int = 2,
+         skip: List[str] = None) -> None:
+    skip = skip or []
+
+    for root, dirs, files in os.walk(startpath):
+        level = root.replace(startpath, '').count(os.sep)
+        indent = ' ' * baseindent * level
+
+        for skip_dir in skip:
+            try:
+                dirs.remove(skip_dir)
+            except ValueError:
+                pass
+
+        basename = root.split('/')[-1]
+        print(f'{indent}{basename}/')
+
+        subindent = ' ' * baseindent * (level + 1)
+        for f in sorted(files):
+            print(f'{subindent}{f}')
+
+
 def main() -> None:
-    script_path = SCRIPT_PATH or Path(input("Volume path: "))
-    table_path = TABLE_PATH or Path(input("Table path: "))
+    show_tree = input("Do you want to see a tree (yes or not)? ")
+    if show_tree == 'yes':
+        tree(skip=['.git', 'venv', '.idea', '__pycache__'])
+
+    script_path = Path.cwd() /  (SCRIPT_PATH or input("Volume path: "))
+    table_path = Path.cwd() / (TABLE_PATH or input("Table path: "))
 
     if table_path is None or not table_path.name:
         name = f"{script_path.stem}_table{script_path.suffix}"
@@ -49,5 +77,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
-
+     main()
