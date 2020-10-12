@@ -32,6 +32,18 @@ body > .layout {
     75% {background-color: green;}
     to {background-color: pink;}
 }
+@keyframes clown {
+    50% {transform: translateX(500px) rotate(1080deg);}
+    to {transform: translateX(0) rotate(360deg);}
+}
+@keyframes clown-reverse {
+    50% {transform: translateX(-500px) rotate(1080deg);}
+    to {transform: translateX(0) rotate(360deg);}
+}
+@keyframes rotate {
+    50% {transform: none;}
+}
+
 .header {
     text-align: center;
     margin: 0;
@@ -41,6 +53,9 @@ body > .layout {
     color: black;
     text-transform: uppercase;
     text-decoration: underline black;
+}
+div.personal-data address {
+    display: inline;
 }
 .photo img {
     position: absolute;
@@ -62,10 +77,11 @@ textarea.area {
     overflow: hidden;
 }
 h4.assessment {
-    color: rgb(120, 10, 100);
+    color: white;
     margin: 0;
     padding: 0;
-
+    background: radial-gradient(#e906ff, black);
+    text-align: center;
 }
 h4.radial-gradient {
     margin: 0;
@@ -79,6 +95,10 @@ h4.linear-gradient {
     padding-bottom: 5px !important;
     background: linear-gradient(#0022ea, #f50024);
     color: #fff;
+    text-align: center;
+}
+h4.linear-gradient1 {
+    background: linear-gradient(150deg, deeppink, white);
     text-align: center;
 }
 form div {
@@ -191,7 +211,7 @@ p.text-up-the-image {
 }
 p.cpp-info {
     margin: 0 5px 0 5px;
-
+    word-wrap: anywhere;
 }
 section.redundant-info {
     background-color: grey;
@@ -199,4 +219,61 @@ section.redundant-info {
 section.redundant-info:hover {
     background-color: transparent;
 }
+.bx {
+    box-sizing: border-box;
+}
+div.columns {
+    columns: 200px auto;
+    column-gap: 100px;
+    column-rule: 2px double red;
+}
+p.col {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
 
+section.anim-2d div{
+    width: 100px;
+    height: 100px;
+    background-image: url(../images/clown-pepe-smile.png);
+    background-size: cover;
+}
+section.anim-2d div.f1 {
+    animation: 2s ease-in-out infinite clown;
+}
+section.anim-2d div.f2 {
+    animation: 2s ease-in-out infinite clown-reverse;
+    margin-left: auto;
+}
+
+section.anim-3d div {
+    width: 300px;
+    height: 300px;
+    background-image: url(../images/clown-pepe-sad.png);
+    background-size: cover;
+    transform-style: flat;
+    -webkit-animation: rotate 5s infinite;
+    animation: rotate 5s infinite;
+}
+section.anim-3d div.f2 {
+    margin-left: auto;
+    transform: rotateX(360deg);
+}
+section.anim-3d div.f1 {
+    transform: rotateY(-360deg);
+}
+section.word-wrap {
+    box-sizing: border-box;
+    margin: 0;
+}
+section.word-wrap p {
+    word-wrap: anywhere;
+    margin: 0;
+}
+div.word-wrap p:hover {
+    width: 90px;
+    color: black;
+}
