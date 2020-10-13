@@ -3,13 +3,6 @@ import math
 import time
 
 
-def measure_time(func):
-    def inner(*args, **kwargs):
-
-    return inner
-
-
-@measure_time
 def do_math(start: int = 0,
             iters_count: int = 0) -> None:
     pos = start
