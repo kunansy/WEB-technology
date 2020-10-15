@@ -19,7 +19,7 @@ def get_chapters(path: Path) -> List[str]:
         for line in f.readlines():
             if line.startswith('#'):
                 clean_line = line.replace('#', '').strip()
-                link = '#' * line.count('#') + clean_line.replace(' ', '-')
+                link = f"#{clean_line.replace(' ', '-')}"
                 table_line = f"1. [{clean_line}]({link})"
                 chapters += [table_line]
     return chapters
@@ -53,7 +53,7 @@ def tree(startpath: str = '.',
             except ValueError:
                 pass
 
-        basename = root.split('/')[-1]
+        basename = root.split(os.sep)[-1]
         print(f'{indent}{basename}/')
 
         subindent = ' ' * baseindent * (level + 1)
@@ -66,7 +66,7 @@ def main() -> None:
     if show_tree == 'yes':
         tree(skip=['.git', 'venv', '.idea', '__pycache__'])
 
-    script_path = Path.cwd() /  (SCRIPT_PATH or input("Volume path: "))
+    script_path = Path.cwd() / (SCRIPT_PATH or input("Volume path: "))
     table_path = Path.cwd() / (TABLE_PATH or input("Table path: "))
 
     if table_path is None or not table_path.name:
