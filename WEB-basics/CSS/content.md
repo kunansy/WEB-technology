@@ -154,6 +154,7 @@ img ~ p {
 * `line-height` – высота букв.
 * `letter-spacing` – расстояние между буквами.
 * `text-indent` – отступы.
+* `-webkit-text-stroke` – обводка вокруг букв.
 
 
 ## Параметры картинки
@@ -329,6 +330,7 @@ cursor: ;
 ```
 
 ## Функции преобразования
+Тег `transform`
 * `rotate()`
 * `rotateX()`
 * `rotateY()` 
@@ -368,8 +370,8 @@ cursor: ;
 ### Свойства анимации
 * `animation-name` – имя анимации, созданной через `@keyframes`
 * `animation-duration` – длительность анимации
-* `animation-direction` – 
-* `animation-iteration-count` – 
+* `animation-direction` – прямой или обратный порядок отображения ключевых кадров
+* `animation-iteration-count` – количество повторений; `infinite` – ∞ 
 
 ### Сокращённая форма
 ```css
