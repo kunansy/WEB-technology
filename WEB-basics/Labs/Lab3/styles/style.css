@@ -32,12 +32,16 @@ body > .layout {
     75% {background-color: green;}
     to {background-color: pink;}
 }
+/* translateX() принимает в качестве аргумента значение, 
+ на которое необходимо сместить элемент относительно его 
+ текущего положения, поэтому схлопнуть clown и clown-reverse
+ невозможно */
 @keyframes clown {
-    50% {transform: translateX(500px) rotate(1080deg);}
+    50% {transform: translateX(40vw) rotate(1080deg);}
     to {transform: translateX(0) rotate(360deg);}
 }
 @keyframes clown-reverse {
-    50% {transform: translateX(-500px) rotate(1080deg);}
+    50% {transform: translateX(-40vw) rotate(1080deg);}
     to {transform: translateX(0) rotate(360deg);}
 }
 @keyframes rotate {
@@ -119,13 +123,13 @@ li span, tr th, p span {
 a {
     text-decoration: none;
     display: block;
-    transition: .5s;
+    transition: all .2s ease .2s;
 }
 a:hover {
     transform: scale(1.1);
     color: white;
     background: black;
-    max-width: 300px;
+    max-width: 10em;
 }
 a#rnc {
     font-size: 20px;
@@ -255,7 +259,6 @@ section.anim-3d div {
     background-image: url(../images/clown-pepe-sad.png);
     background-size: cover;
     transform-style: flat;
-    -webkit-animation: rotate 5s infinite;
     animation: rotate 5s infinite;
 }
 section.anim-3d div.f2 {
