@@ -69,9 +69,13 @@ def main() -> None:
     script_path = Path.cwd() / (SCRIPT_PATH or input("Volume path: "))
     table_path = Path.cwd() / (TABLE_PATH or input("Table path: "))
 
-    if table_path is None or not table_path.name:
+    if table_path is None or not table_path.name or table_path.is_dir():
         name = f"{script_path.stem}_table{script_path.suffix}"
         table_path = script_path.with_name(name)
+
+    print(f"Script Path is: {script_path}")
+    print(f"Table Path is: {table_path}")
+
     chapters = get_chapters(script_path)
     dump_chapters(chapters, table_path)
 
