@@ -1,0 +1,16 @@
+version: "3.3"
+
+volumes:
+    psql:
+
+services:
+    database:
+        image: postgres
+        volumes:
+            - /psql/:/var/lib/postgresql/data
+        restart: always
+        environment:
+            - POSTGRES_PASSWORD='12345'
+            - TZ=Europe/Moscow
+        ports:
+            - 8080:5432
