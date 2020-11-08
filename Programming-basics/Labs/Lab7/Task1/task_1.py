@@ -17,30 +17,58 @@ DUMP_PATH = Path('routes.txt')
 
 
 class Route:
+    """ Class for working with a Route """
     def __init__(self,
                  num: int,
                  start: str,
                  dest: str) -> None:
+        """ Init a route.
+
+        :param num: int, route number.
+        :param start: str, start point of the route.
+        :param dest: str, destination point of the route.
+        :return: None.
+        """
         self._num = num
         self._start = start
         self._dest = dest
 
     @property
     def num(self) -> int:
+        """ Get number of the route.
+
+        :return: int, number of the route.
+        """
         return self._num
 
     @property
     def start(self) -> str:
+        """ Get start point of the route.
+
+        :return: str, start point of the route.
+        """
         return self._start
 
     @property
     def dest(self) -> str:
+        """ Get destination point of the route.
+
+        :return: str, destination point of the route.
+        """
         return self._dest
 
     def __str__(self) -> str:
+        """ Convert the route to str like:
+            Маршрут: 'route number'
+            Из: `start point`
+            В: `destination point`
+
+        :return: str this format.
+        """
         num = f"Маршрут: {self.num}"
         start = f"Из: '{self.start}'"
         dest = f"В: '{self.dest}'"
+
         return f"{num}\n{start}\n{dest}"
 
 
