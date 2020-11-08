@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import List, Any
 
 import PyQt5.QtWidgets as Widgets
-from PyQt5 import uic
+from PyQt5 import uic, QtCore
 
 MAIN_WINDOW_PATH = Path('./ui/MainWindow.ui')
 ERROR_WINDOW_PATH = Path('./ui/ErrorWindow.ui')
@@ -13,7 +13,7 @@ INPUT_WINDOW_PATH = Path('./ui/InputWindow.ui')
 SAVE_WINDOW_PATH = Path('./ui/SaveWindow.ui')
 SEARCH_WINDOW_PATH = Path('./ui/SearchWindow.ui')
 
-ROUTES_COUNT = 2
+ROUTES_COUNT = 8
 
 
 class Route:
@@ -179,6 +179,9 @@ class Routes:
 
         :return: str with converted routes.
         """
+        if len(self) == 0:
+            return ''
+
         corner = '-' * 20
         inside = '\n' + '-' * 15 + '\n'
 
@@ -197,7 +200,6 @@ class MainWindow(Widgets.QMainWindow):
         self.initUI()
 
     def initUI(self) -> None:
-        """ Инициализация окон и кнопок """
         self.InputWindow = InputWindow(self, [])
         self.ErrorWindow = ErrorWindow(self, [])
         self.SaveWindow = SaveWindow(self, [])
@@ -208,41 +210,41 @@ class MainWindow(Widgets.QMainWindow):
         self.DumpButton.clicked.connect(self.dump)
         self.ExitButton.clicked.connect(self.close)
 
-    def input(self) -> None:
-        """ Вызов окна ввода маршрутов """
-        if len(routes) == ROUTES_COUNT:
-            self.ErrorWindow.display(
-                "Список маршрутов уже задан, ввод невозможен")
-            return
-        self.InputWindow.show()
+        self.checkThreadTimer = QtCore.QTimer(self)
+        self.checkThreadTimer.setInterval(500)
+        self.checkThreadTimer.start()
+
+        self.checkThreadTimer.timeout.connect(self.show)
 
     def show(self) -> None:
+        self.RoutesBrowser.setText(str(routes))
+        super().show()
+
         if len(routes) != ROUTES_COUNT:
-            super().show()
-            # self.InputWindow.show()
-        else:
-            self.RoutesBrowser.setText(str(routes))
-            super().show()
+            self.InputWindow.show()
 
     def dump(self) -> None:
-        """ 'сохранить как', вывод в csv файл """
-        if not routes:
-            self.ErrorWindow.display(
-                "Список маршрутов пуст, нечего выводить в файл")
+        if len(routes) != ROUTES_COUNT:
+            self.error("Ввод маршрутов ещё не закончен!")
             return
         self.SaveWindow.show()
 
     def search(self) -> None:
-        if len(routes) == 0:
-            self.ErrorWindow.display("Список маршрутов пуст, негде искать")
+        if len(routes) != ROUTES_COUNT:
+            self.error("Ввод маршрутов ещё не закончен!")
             return
         self.SearchWindow.show()
+
+    def error(self, msg: str) -> None:
+        self.ErrorWindow.close()
+        self.ErrorWindow.display(msg)
 
     def close(self) -> None:
         """ Закрыть все окна """
         self.ErrorWindow.close()
         self.InputWindow.close()
         self.SaveWindow.close()
+        self.SearchWindow.close()
 
         super().close()
 
@@ -251,6 +253,7 @@ class InputWindow(Widgets.QWidget):
     def __init__(self, *args) -> None:
         super().__init__()
         uic.loadUi(INPUT_WINDOW_PATH, self)
+
         self.initUI()
 
     def initUI(self) -> None:
@@ -264,12 +267,6 @@ class InputWindow(Widgets.QWidget):
         self.RDestInput.clear()
 
     def input(self) -> None:
-        """ Считать из полей значения, преобразовать их в
-        объект типа Route.
-
-        :exception ValueError: если в качестве номера введено
-        не число или если какая-то из строк оказалась пустой.
-        """
         if not (len(self.RNumInput.text().strip()) > 0 and
                 len(self.RStartInput.text().strip()) and
                 len(self.RDestInput.text().strip()) > 0):
@@ -294,7 +291,8 @@ class InputWindow(Widgets.QWidget):
             f"Осталось ввести: {ROUTES_COUNT - len(routes)}")
 
     def show(self) -> None:
-        self.RoutesRemain.setText(f"Осталось ввести: {ROUTES_COUNT - len(routes)}")
+        self.RoutesRemain.setText(
+            f"Осталось ввести: {ROUTES_COUNT - len(routes)}")
         super().show()
 
 
@@ -302,11 +300,12 @@ class ErrorWindow(Widgets.QWidget):
     def __init__(self, *args) -> None:
         super().__init__()
         uic.loadUi(ERROR_WINDOW_PATH, self)
+
         self.initUI()
 
     def initUI(self) -> None:
-        self.setWindowTitle("Ошибка")
         self.Box.clicked.connect(self.close)
+        self.setWindowTitle("Ошибка")
 
     def display(self, message: str) -> None:
         error = "<center><b>Ошибка!</b></center><br>"
@@ -315,18 +314,22 @@ class ErrorWindow(Widgets.QWidget):
 
 
 class SaveWindow(Widgets.QWidget):
+    DEFAULT_FILENAME = 'default.csv'
+
     def __init__(self, *args) -> None:
         super().__init__()
         uic.loadUi(SAVE_WINDOW_PATH, self)
+
         self.initUI()
 
     def initUI(self) -> None:
         self.ExitButton.clicked.connect(self.close)
         self.SaveButton.clicked.connect(self.save)
+        self.setWindowTitle("Сохранить как")
 
     def get_path(self) -> Path:
         name = self.FilenameInput.text()
-        if len(name) < 2:
+        if len(name) == 0:
             raise ValueError("Имя файла слишком короткое или пустое")
         name = f"{name}{'.csv' * (not name.endswith('.csv'))}"
         return Path.cwd() / name
@@ -334,11 +337,18 @@ class SaveWindow(Widgets.QWidget):
     def save(self) -> None:
         try:
             path = self.get_path()
-        except ValueError as e:
-            self.FilenameInput.setText(str(e))
-        else:
-            routes.dump(path)
-            self.close()
+        except ValueError:
+            path = Path.cwd() / self.DEFAULT_FILENAME
+        routes.dump(path)
+        self.clear()
+        self.close()
+
+    def clear(self) -> None:
+        self.FilenameInput.clear()
+
+    def close(self) -> None:
+        self.clear()
+        super().close()
 
 
 class SearchWindow(Widgets.QWidget):
@@ -355,7 +365,7 @@ class SearchWindow(Widgets.QWidget):
 
     def show_results(self) -> None:
         if len(self.QueryInput.text().strip()) == 0:
-            self.QueryInput.setText("<b>Введите запрос</b>")
+            self.ResultsBrowser.setText("<center><b>Введите запрос</b></center>")
             return
 
         query = self.QueryInput.text()
@@ -365,7 +375,7 @@ class SearchWindow(Widgets.QWidget):
         ends = routes.ends_in_point(query)
 
         if not (starts or ends):
-            self.ResultsBrowser.setText("Маршрутов не найдено")
+            self.ResultsBrowser.setText("Маршруты не найдены")
         if starts:
             msg = f"Маршруты, начинающиеся в '{query}': "
             self.ResultsBrowser.setText(f"{msg}\n{starts}")
@@ -374,10 +384,21 @@ class SearchWindow(Widgets.QWidget):
             msg = f"Маршруты, заканчивающиеся в '{query}': "
             self.ResultsBrowser.setText(f"{last_text}\n{msg}\n{ends}")
 
+    def clear(self) -> None:
+        self.ResultsBrowser.clear()
+        self.QueryInput.clear()
+
+    def close(self) -> None:
+        self.clear()
+        super().close()
+
 
 def main() -> None:
     app = Widgets.QApplication(sys.argv)
     RoutesWindow = MainWindow()
     RoutesWindow.show()
-    RoutesWindow.input()
     exit(app.exec_())
+
+
+if __name__ == '__main__':
+    main()
