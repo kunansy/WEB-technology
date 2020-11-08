@@ -5,17 +5,6 @@ from pathlib import Path
 from typing import List, Any
 
 
-def clear() -> None:
-    # в разных системах экран очищается по-разному
-    if 'linux' in sys.platform:
-        os.system('clear')
-    elif sys.platform == 'win32':
-        os.system('cls')
-
-
-DUMP_PATH = Path('routes.txt')
-
-
 class Route:
     """ Class for working with a Route """
     def __init__(self,
@@ -183,70 +172,6 @@ class Routes:
 
         res = inside.join(str(route) for route in self._routes)
         return f"{corner}\n{res}\n{corner}"
-
-
-def input_routes() -> Routes:
-    routes = Routes()
-    for _ in range(8):
-        try:
-            num = int(input("Введите номер маршрута: "))
-        except ValueError:
-            print("Ожидалось число", file=sys.stderr)
-            raise
-        start = input("Введите начальный пункт маршрута: ")
-        dest = input("Введите конечный пункт маршрута: ")
-
-        route = Route(num, start, dest)
-        routes += route
-
-        print()
-    return routes
-
-
-def menu() -> None:
-    print("1. Распечатать маршруты")
-    print("2. Искать маршрут")
-    print("3. Вывести маршруты в файл")
-    print("4. Выйти")
-
-
-def main() -> None:
-    try:
-        routes = input_routes()
-    except ValueError:
-        print("Неверный ввод, уничтожение...", file=sys.stderr)
-        exit(-1)
-
-    while True:
-        clear()
-        menu()
-        choice = input()
-        clear()
-
-        if choice == '1':
-            print(routes)
-        elif choice == '2':
-            point = input("Введите пункт: ")
-            starts = routes.starts_in_point(point)
-            ends = routes.ends_in_point(point)
-
-            if not (starts or ends):
-                print("Маршрутов не найдено")
-            if starts:
-                print("Маршруты, начинающиеся в введённом пункте: ")
-                print(starts)
-            if ends:
-                print("Маршруты, заканчивающиеся в введённом пункте: ")
-                print(ends)
-        elif choice == '3':
-            path = Path(input("Введите имя файла: "))
-            path = Path.cwd() / path
-            routes.dump(path)
-        elif choice == '4':
-            break
-        else:
-            print("Неверный ввод", file=sys.stderr)
-        input("----Нажмите Enter, чтобы продолжить----")
 
 
 if __name__ == "__main__":
