@@ -157,6 +157,13 @@ class Routes:
         """
         return bool(self._routes)
 
+    def __len__(self) -> int:
+        """ Get len of the list.
+
+        :return: int, len of the list.
+        """
+        return len(self._routes)
+
     def __iadd__(self, route: Route) -> Any:
         """ Add a route obj to the list.
 
