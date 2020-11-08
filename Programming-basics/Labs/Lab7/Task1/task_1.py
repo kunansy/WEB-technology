@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import os
+import csv
 import sys
 from pathlib import Path
 from typing import List, Any
@@ -45,6 +45,11 @@ class Route:
 
 
 class Routes:
+    # for csv writing
+    DELIMITER = '\t'
+    QUOTECHAR = '"'
+    COLUMNS = ["Номер маршрута", "Начало маршрута", "Конец маршрута"]
+
     def __init__(self, routes: List[Route] = None) -> None:
         self._routes = routes or []
 
@@ -65,7 +70,16 @@ class Routes:
         return Routes(ends)
 
     def dump(self, path: Path) -> None:
-        print(self, file=path.open('w', encoding='utf-8'))
+        rows = [
+            [route.num, route.start, route.dest]
+            for route in self
+        ]
+        with path.open('w', encoding='utf-8', newline='') as f:
+            dm = self.DELIMITER
+            qch = self.QUOTECHAR
+            writer = csv.writer(
+                f, delimiter=dm, quotechar=qch, quoting=csv.QUOTE_MINIMAL)
+            writer.writerows([self.COLUMNS] + rows)
 
     def add(self, route: Route) -> None:
         self._routes += [route]
