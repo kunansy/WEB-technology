@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import csv
-import sys
 from pathlib import Path
 from typing import List, Any
 
