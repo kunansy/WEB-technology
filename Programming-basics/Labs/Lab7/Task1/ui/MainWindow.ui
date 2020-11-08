@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>555</width>
-    <height>600</height>
+    <height>886</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,13 +19,14 @@
      <rect>
       <x>0</x>
       <y>40</y>
-      <width>371</width>
-      <height>551</height>
+      <width>271</width>
+      <height>841</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>TeX Gyre Bonum Math</family>
+      <family>Sans</family>
+      <pointsize>12</pointsize>
       <italic>false</italic>
      </font>
     </property>
@@ -33,7 +34,7 @@
    <widget class="QLabel" name="RoutesLabel">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>70</x>
       <y>10</y>
       <width>121</width>
       <height>27</height>
@@ -49,8 +50,8 @@
    <widget class="QPushButton" name="DumpButton">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>470</y>
+      <x>280</x>
+      <y>740</y>
       <width>171</width>
       <height>36</height>
      </rect>
@@ -62,8 +63,8 @@
    <widget class="QPushButton" name="ExitButton">
     <property name="geometry">
      <rect>
-      <x>400</x>
-      <y>550</y>
+      <x>300</x>
+      <y>820</y>
       <width>133</width>
       <height>36</height>
      </rect>
@@ -75,8 +76,8 @@
    <widget class="QPushButton" name="SearchButton">
     <property name="geometry">
      <rect>
-      <x>399</x>
-      <y>510</y>
+      <x>300</x>
+      <y>780</y>
       <width>133</width>
       <height>36</height>
      </rect>

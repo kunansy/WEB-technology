@@ -16,6 +16,14 @@ SEARCH_WINDOW_PATH = Path('./ui/SearchWindow.ui')
 ROUTES_COUNT = 8
 
 
+def sltext(text: str) -> str:
+    return text.lower().strip()
+
+
+def stext(text: str) -> str:
+    return text.strip()
+
+
 class Route:
     """ Class for working with a Route """
 
@@ -66,7 +74,7 @@ class Route:
 
         :return: str this format.
         """
-        num = f"Маршрут: {self.num}"
+        num = f"Маршрут №{self.num}"
         start = f"Из: '{self.start}'"
         dest = f"В: '{self.dest}'"
 
@@ -80,7 +88,8 @@ class Routes:
     QUOTECHAR = '"'
     COLUMNS = ["Номер маршрута", "Начало маршрута", "Конец маршрута"]
 
-    def __init__(self, routes: List[Route] = None) -> None:
+    def __init__(self,
+                 routes: List[Route] = None) -> None:
         """ Init a Routes obj.
 
         :param routes: list of Route, Route points to work with
@@ -96,10 +105,10 @@ class Routes:
         :param point: str, point to find.
         :return: Routes, routes start in the point.
         """
-        point = point.lower().strip()
+        point = sltext(point)
         starts = [
             route for route in self._routes
-            if route.start.lower().strip() == point
+            if sltext(route.start) == point
         ]
         return Routes(starts)
 
@@ -110,10 +119,10 @@ class Routes:
         :param point: str, point to find.
         :return: Routes, routes end in the point.
         """
-        point = point.lower().strip()
+        point = sltext(point)
         ends = [
             route for route in self._routes
-            if route.dest.lower().strip() == point
+            if sltext(route.dest) == point
         ]
         return Routes(ends)
 
@@ -123,16 +132,15 @@ class Routes:
         :param path: Path to csv file to dump the routes.
         :return: None.
         """
-        rows = [
-            [route.num, route.start, route.dest]
-            for route in self
-        ]
         with path.open('w', encoding='utf-8', newline='') as f:
             dm = self.DELIMITER
             qch = self.QUOTECHAR
             writer = csv.writer(
                 f, delimiter=dm, quotechar=qch, quoting=csv.QUOTE_MINIMAL)
-            writer.writerows([self.COLUMNS] + rows)
+
+            writer.writerow(self.COLUMNS)
+            for route in self._routes:
+                writer.writerow([route.num, route.start, route.dest])
 
     def add(self, route: Route) -> None:
         """ Add a route to the list,
@@ -182,8 +190,8 @@ class Routes:
         if len(self) == 0:
             return ''
 
-        corner = '-' * 20
-        inside = '\n' + '-' * 15 + '\n'
+        corner = '-' * 25
+        inside = '\n' + '-' * 20 + '\n'
 
         res = inside.join(str(route) for route in self._routes)
         return f"{corner}\n{res}\n{corner}"
@@ -240,7 +248,6 @@ class MainWindow(Widgets.QMainWindow):
         self.ErrorWindow.display(msg)
 
     def close(self) -> None:
-        """ Закрыть все окна """
         self.ErrorWindow.close()
         self.InputWindow.close()
         self.SaveWindow.close()
@@ -261,25 +268,29 @@ class InputWindow(Widgets.QWidget):
         self.ClearButton.clicked.connect(self.clear)
         self.setWindowTitle("Ввод маршрутов")
 
+    def stext(self, obj) -> str:
+        return obj.text().strip()
+
     def clear(self) -> None:
         self.RNumInput.clear()
         self.RStartInput.clear()
         self.RDestInput.clear()
 
     def input(self) -> None:
-        if not (len(self.RNumInput.text().strip()) > 0 and
-                len(self.RStartInput.text().strip()) and
-                len(self.RDestInput.text().strip()) > 0):
+        if not (len(self.stext(self.RNumInput)) > 0 and
+                len(self.stext(self.RStartInput)) and
+                len(self.stext(self.RDestInput)) > 0):
             self.clear()
             return
 
+        num = self.stext(self.RNumInput)
         try:
-            num = int(self.RNumInput.text().strip())
+            num = int(num)
         except ValueError:
             self.clear()
             return
-        start = self.RStartInput.text().strip()
-        dest = self.RDestInput.text().strip()
+        start = self.stext(self.RStartInput)
+        dest = self.stext(self.RDestInput)
 
         routes.add(Route(num, start, dest))
         self.clear()
@@ -327,8 +338,8 @@ class SaveWindow(Widgets.QWidget):
         self.SaveButton.clicked.connect(self.save)
         self.setWindowTitle("Сохранить как")
 
-    def get_path(self) -> Path:
-        name = self.FilenameInput.text()
+    def path(self) -> Path:
+        name = stext(self.FilenameInput.text())
         if len(name) == 0:
             raise ValueError("Имя файла слишком короткое или пустое")
         name = f"{name}{'.csv' * (not name.endswith('.csv'))}"
@@ -336,7 +347,7 @@ class SaveWindow(Widgets.QWidget):
 
     def save(self) -> None:
         try:
-            path = self.get_path()
+            path = self.path()
         except ValueError:
             path = Path.cwd() / self.DEFAULT_FILENAME
         routes.dump(path)
@@ -369,7 +380,7 @@ class SearchWindow(Widgets.QWidget):
             return
 
         query = self.QueryInput.text()
-        self.QueryInput.clear()
+        self.clear()
 
         starts = routes.starts_in_point(query)
         ends = routes.ends_in_point(query)
