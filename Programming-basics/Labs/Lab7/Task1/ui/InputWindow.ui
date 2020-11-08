@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>InputWindow</class>
+ <widget class="QWidget" name="InputWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>524</width>
+    <height>301</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>10</y>
+     <width>311</width>
+     <height>181</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLineEdit" name="RNumInput"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="RStartInput"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="RDestInput"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QLabel" name="RNumberLable">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>14</y>
+     <width>200</width>
+     <height>52</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Номер маршрута:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="RStartsLabel">
+   <property name="geometry">
+    <rect>
+     <x>4</x>
+     <y>88</y>
+     <width>200</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Начало маршрута:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="RDestLabel">
+   <property name="geometry">
+    <rect>
+     <x>16</x>
+     <y>141</y>
+     <width>200</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Конец маршрута:</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>240</y>
+     <width>391</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QPushButton" name="EnterButton">
+      <property name="text">
+       <string>Ввести</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="ClearButton">
+      <property name="text">
+       <string>Очистить</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QLabel" name="RoutesRemain">
+   <property name="geometry">
+    <rect>
+     <x>212</x>
+     <y>200</y>
+     <width>301</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Осталось ввести: </string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
