@@ -33,7 +33,7 @@ class Point:
 
     def update(self,
                pages: List[int] or Set[int]) -> None:
-        self._pages.union(pages)
+        self._pages = self._pages.union(pages)
 
     def __contains__(self,
                      page: int) -> bool:
@@ -238,11 +238,11 @@ class SearchWindow(Widgets.QWidget):
         point = pointer.search(query)
 
         if point is None:
-            self.ResultsBrowser.setText("Слова не найдены")
+            self.ResultsBrowser.setText("Слово не найдено")
         else:
             msg = f"Слово '{query}' встречается на: "
             pages = ', '.join(str(page) for page in point.pages)
-            self.ResultsBrowser.setText(f"{msg}\n{pages} страницах")
+            self.ResultsBrowser.setText(f"{msg} {pages} страницах")
 
     def clear(self) -> None:
         self.ResultsBrowser.clear()
