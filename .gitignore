@@ -148,3 +148,5 @@ cython_debug/
 *.log
 *.lof
 *.lot
+*.out
+*.toc
