@@ -63,14 +63,21 @@ class MainWindow(W.QMainWindow):
         self.SearchWindow = SearchWindow(self, [])
         self.setWindowTitle("Товары")
 
-        self.SearchButton.clicked.connect(self.find)
+        self.SearchButton.clicked.connect(self.search)
         self.DumpButton.clicked.connect(self.to_file)
+        self.InputButton.clicked.connect(self.input)
         self.ExitButton.clicked.connect(self.close)
 
         self.timer = QtCore.QTimer(self)
-        self.timer.setInterval(1000)
+        self.timer.setInterval(500)
         self.timer.start()
         self.timer.timeout.connect(self.show)
+
+    def input(self):
+        if len(shop.items) == 8:
+            self.ErrorWindow.display("8 товаров уже введено")
+            return
+        self.InputWindow.show()
 
     def show(self):
         a = Shop(shop.items[:4])
@@ -80,18 +87,15 @@ class MainWindow(W.QMainWindow):
         self.ItemsBrowser2.setText(str(b))
         super().show()
 
-        if len(shop.items) != 8:
-            self.InputWindow.show()
-
     def to_file(self):
-        if len(shop.items) != 8:
-            self.error("Ввод ещё не окончен!")
+        if len(shop.items) == 0:
+            self.ErrorWindow.display("Товары не введены")
             return
         self.SaveWindow.show()
 
-    def find(self):
-        if len(shop.items) != 8:
-            self.error("Ввод ещё не окончен!")
+    def search(self):
+        if len(shop.items) == 0:
+            self.ErrorWindow.display("Товары не введены")
             return
         self.SearchWindow.show()
 
@@ -171,7 +175,7 @@ class SaveWindow(W.QWidget):
 
         self.ExitButton.clicked.connect(self.close)
         self.SaveButton.clicked.connect(self.save)
-        self.setWindowTitle("Сохранить как")
+        self.setWindowTitle("Сохранить")
 
     def path(self):
         name = self.FilenameInput.text().strip()
@@ -210,7 +214,7 @@ class SearchWindow(W.QWidget):
 
     def res(self):
         if len(self.QueryInput.text().strip()) == 0:
-            self.ResultsBrowser.setText("<center><b>Введите запрос</b></center>")
+            self.ResultsBrowser.setText("Введите запрос")
             return
 
         query = self.QueryInput.text()
@@ -235,4 +239,5 @@ class SearchWindow(W.QWidget):
 app = W.QApplication(sys.argv)
 main = MainWindow()
 main.show()
+main.input()
 exit(app.exec_())
