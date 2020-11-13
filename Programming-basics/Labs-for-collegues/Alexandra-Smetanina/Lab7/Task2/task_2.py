@@ -3,6 +3,7 @@ import sys
 
 import PyQt5.QtWidgets as W
 from PyQt5 import uic, QtCore
+from datetime import datetime as dt
 
 
 class Train:
@@ -12,14 +13,15 @@ class Train:
         self.time = c
 
     def __str__(self):
-        return f"Поезд {self.number}\nОтправляется в {self.time}\nИдёт до {self.dest}"
+        time = self.time.strftime("%H:%M")
+        return f"Поезд {self.number}\nОтправляется в {time}\nИдёт до {self.dest}"
 
 
 class Trains:
     def __init__(self, a):
         self.trains = a
 
-    def search_by_number(self, num):
+    def search_by_num(self, num):
         for train in self.trains:
             if train.number == num:
                 return train
@@ -30,8 +32,8 @@ class Trains:
         for train in self.trains:
             if train.dest.strip() == dest:
                 res.append(train)
-
-        return res
+        if res:
+            return Trains(res)
 
     def append(self, train):
             if train not in self:
@@ -65,7 +67,7 @@ class MainWindow(W.QMainWindow):
         self.ExitButton.clicked.connect(self.close)
 
         self.timer = QtCore.QTimer(self)
-        self.timer.setInterval(1000)
+        self.timer.setInterval(500)
         self.timer.start()
         self.timer.timeout.connect(self.show)
 
@@ -123,7 +125,14 @@ class InputWindow(W.QWidget):
         except ValueError:
             self.clear()
             return
+
         time = self.TimeInput.text().strip()
+        try:
+            time = dt.strptime(time, "%H:%M")
+        except ValueError:
+            self.clear()
+            return
+
         dest = self.DestInput.text().strip()
 
         trains.append(Train(num, dest, time))
@@ -164,7 +173,7 @@ class SearchWindow(W.QWidget):
         try:
             query = int(query)
         except ValueError:
-            self.ResultBrowser.setText("Введите число")
+            self.ResultsBrowser.setText("Введите число")
             return
 
         res = trains.search_by_num(query)
@@ -183,10 +192,10 @@ class SearchWindow(W.QWidget):
         self.clear()
 
         res = trains.search_by_dest(query)
-        if not res.trains:
-            self.RusultsBrowser.setText("Поезда в {query} не идут")
+        if res is None:
+            self.ResultsBrowser.setText(f"Поезда в {query} не идут")
         else:
-            self.ResultsBrowser.setText("До {query} следуют: \n{res}")
+            self.ResultsBrowser.setText(f"До {query} следуют: \n{res}")
 
     def clear(self):
         self.ResultsBrowser.clear()
@@ -200,4 +209,5 @@ class SearchWindow(W.QWidget):
 a = W.QApplication(sys.argv)
 main = MainWindow()
 main.show()
+main.input()
 exit(a.exec_())
