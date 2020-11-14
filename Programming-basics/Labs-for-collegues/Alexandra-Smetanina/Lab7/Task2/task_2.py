@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import sys
 
 import PyQt5.QtWidgets as W
@@ -36,8 +35,8 @@ class Trains:
             return Trains(res)
 
     def append(self, train):
-            if train not in self:
-                self.trains.append(train)
+        if train not in self:
+            self.trains.append(train)
 
     def __contains__(self, a):
         return any(i == a for i in self.trains)
