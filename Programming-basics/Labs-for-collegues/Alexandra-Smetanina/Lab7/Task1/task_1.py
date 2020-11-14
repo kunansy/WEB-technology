@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import csv
 import os
 import sys
@@ -221,11 +220,11 @@ class SearchWindow(W.QWidget):
         self.clear()
 
         shops = shop.find(query)
-        if not shops.items:
-            self.ResultsBrowser.setText(f"Товары из '{query}' не найдены")
-        else:
+        if shops.items:
             text = f"Товары из '{query}': "
             self.ResultsBrowser.setText(f"{text}\n{shops}")
+        else:
+            self.ResultsBrowser.setText(f"Товары из '{query}' не найдены")
 
     def clear(self):
         self.ResultsBrowser.clear()
