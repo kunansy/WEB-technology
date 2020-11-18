@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.1 (c497b03c, 2020-09-10)"
+   sodipodi:docname="Текст_по_контуру_и_в_фигуре.svg">
+  <defs
+     id="defs2">
+    <rect
+       x="167.16856"
+       y="180.79861"
+       width="99.820076"
+       height="157.94823"
+       id="rect880" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient864">
+      <stop
+         style="stop-color:#0000ff;stop-opacity:1;"
+         offset="0"
+         id="stop860" />
+      <stop
+         style="stop-color:#0000ff;stop-opacity:0;"
+         offset="1"
+         id="stop862" />
+    </linearGradient>
+    <rect
+       x="61.335227"
+       y="200.04104"
+       width="110.24306"
+       height="93.005051"
+       id="rect848" />
+    <rect
+       x="11.224747"
+       y="119.46338"
+       width="210.06313"
+       height="30.868056"
+       id="rect837" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient864"
+       id="radialGradient866"
+       cx="93.606377"
+       cy="238.32544"
+       fx="93.606377"
+       fy="238.32544"
+       r="59.630363"
+       gradientTransform="matrix(1,0,0,0.75797873,0,57.679825)"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.66"
+     inkscape:cx="426.06848"
+     inkscape:cy="697.87879"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:snap-text-baseline="false"
+     inkscape:window-width="1184"
+     inkscape:window-height="880"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Слой 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 16.436237,39.6875 c 27.260102,-3.207071 47.304292,-15.233586 47.304292,-15.233586 0,0 -9.621213,30.467172 12.828283,42.493685 22.449494,12.026517 72.159088,16.43624 69.352898,-8.017676 -2.80618,-24.453913 -0.80176,-46.10164 27.2601,-24.453913"
+       id="path833" />
+    <text
+       xml:space="preserve"
+       id="text835"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;white-space:pre;fill:#000000;fill-opacity:1;stroke:none"><textPath
+         xlink:href="#path833"
+         id="textPath841"><tspan
+           id="tspan839">Kolobov Kirill Kolobov Kirill Kolobov Kirill Kolobov Kirill Kolobov Kirill </tspan></textPath></text>
+    <path
+       sodipodi:type="star"
+       style="fill:none;stroke-width:1;paint-order:stroke fill markers;stroke:#ff0000;stroke-opacity:1"
+       id="path844"
+       sodipodi:sides="8"
+       sodipodi:cx="45.702781"
+       sodipodi:cy="124.77214"
+       sodipodi:r1="39.721905"
+       sodipodi:r2="27.010895"
+       sodipodi:arg1="0.74256723"
+       sodipodi:arg2="1.1352663"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 74.967302,151.63136 -17.868867,-2.36988 -9.694847,15.19614 -10.959437,-14.31096 -17.600587,3.89 2.369883,-17.86887 -15.196141,-9.69484 14.310957,-10.95944 -3.890002,-17.600587 17.868867,2.369887 9.694848,-15.196145 10.959436,14.310957 17.600587,-3.890002 -2.369883,17.86887 15.196141,9.69484 -14.310957,10.95944 z"
+       inkscape:transform-center-x="4.3142525"
+       inkscape:transform-center-y="-5.957106" />
+    <text
+       xml:space="preserve"
+       id="text846"
+       style="font-style:normal;font-weight:normal;font-size:5.64444000000000035px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#path844);fill:#000000;fill-opacity:1;stroke:none;"><tspan
+         x="34.549458"
+         y="104.34663"><tspan
+           style="shape-inside:url(#path844)">Kolobov </tspan></tspan><tspan
+         x="19.68466"
+         y="111.40218"><tspan
+           style="shape-inside:url(#path844)">Kirill Kolobov </tspan></tspan><tspan
+         x="20.194748"
+         y="118.45773"><tspan
+           style="shape-inside:url(#path844)">Kirill Kolobov </tspan></tspan><tspan
+         x="13.073508"
+         y="125.51328"><tspan
+           style="shape-inside:url(#path844)">Kirill Kolobov Kirill </tspan></tspan><tspan
+         x="17.453386"
+         y="132.56883"><tspan
+           style="shape-inside:url(#path844)">Kolobov Kirill </tspan></tspan><tspan
+         x="21.12664"
+         y="139.62439"><tspan
+           style="shape-inside:url(#path844)">Kolobov Kirill </tspan></tspan><tspan
+         x="20.408388"
+         y="146.67994"><tspan
+           style="shape-inside:url(#path844)">Kolobov Kirill </tspan></tspan><tspan
+         style="visibility:hidden"
+         x="6.0175781"
+         y="169.60663"><tspan
+           dx="0 3.9136255 3.4285567 1.5544262 3.4285564 3.5167503 3.4285564 3.3403625 1.9843731 3.9136257 1.5544262 2.4143219 1.5544243 1.5544281 1.5544243"
+           style="shape-inside:url(#path844)">Kolobov Kirill </tspan></tspan></text>
+    <ellipse
+       style="fill:url(#radialGradient866);stroke:#ff0000;stroke-width:1;stroke-opacity:1;paint-order:stroke fill markers;fill-opacity:1"
+       id="path858"
+       cx="93.606377"
+       cy="238.32544"
+       rx="59.130363"
+       ry="44.698547" />
+    <text
+       xml:space="preserve"
+       id="text878"
+       style="font-style:normal;font-weight:normal;font-size:10.58329999999999949px;line-height:1.25;font-family:sans-serif;white-space:pre;fill:#000000;fill-opacity:1;stroke:none;shape-inside:url(#path858);"><tspan
+         x="50.039036"
+         y="216.51154"><tspan>Текст текст </tspan></tspan><tspan
+         x="38.871677"
+         y="229.74067"><tspan>Текст текст Текст </tspan></tspan><tspan
+         x="35.178909"
+         y="242.9698"><tspan>текст Текст текст </tspan></tspan><tspan
+         x="40.811848"
+         y="256.19892"><tspan>Текст текст Текст </tspan></tspan><tspan
+         x="54.338177"
+         y="269.42805"><tspan>текст Текст </tspan></tspan><tspan
+         style="visibility:hidden"
+         x="34.476562"
+         y="292.6789"><tspan
+           dx="0 5.250309 6.3045044 6.2631645 5.6637192 5.250309 3.7206917 6.5318794 6.3045044 6.2631645 5.6637192 5.250309 3.7206917 5.2503052 6.3045044 6.2631683 5.6637192 5.2503052 3.7206955 6.5318756 6.3045044 6.2631683 5.6637192 5.2503128 3.7206879 5.2503052 6.3045044 6.2631683 5.6637115 5.2503204 3.7206879 6.5318756 6.3045044 6.2631683 5.6637115 5.2503204 3.7206879 5.2503052 6.3045044 6.2631683 5.6637115 5.2503204 3.7206879 6.5318756 6.3045044 6.2631683 5.6637115 5.2503052 3.7207031 5.2503052 6.3045044 6.2631531 5.6637268 5.2503052 3.7207031 6.5318604 6.3045349 6.2631531 5.6637268 5.2503052 3.7206726 5.2503052 6.3045044 6.2631836 5.6637268 5.2503052 3.7206726 6.5318909 6.3045044 6.2631531 5.6637268 5.2503052 3.7207031 5.2503052 6.3045044 6.2631531 5.6637268 5.2503052 3.7207031 6.5318604 6.3045044 6.2631836 5.6637268 5.2503052 3.7206726 5.2503052 6.3045044 6.2631836 5.6637268 5.2503052 3.7206726 6.5318909 6.3045044 6.2631836 5.6636963 5.2503052 3.7207031 5.2503052 6.3045044 6.2631836 5.6636963 5.2503052 3.7207031 6.5318604 6.3045044 6.2631836 5.6636963 5.2503052 3.7207031 5.2503052 6.3045044 6.2631836 5.6636963 5.2503052">текст Текст текст Текст текст Текст текст Текст текст Текст текст Текст текст Текст текст Текст текст Текст текст </tspan></tspan></text>
+  </g>
+</svg>
