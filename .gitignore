@@ -150,3 +150,7 @@ cython_debug/
 *.lot
 *.out
 *.toc
+
+
+# GIT
+.git/
