@@ -10,7 +10,7 @@ services:
             - /psql/:/var/lib/postgresql/data
         restart: always
         environment:
-            - POSTGRES_PASSWORD='12345'
-            - TZ=Europe/Moscow
+          POSTGRES_PASSWORD: '12345'
+          POSTGRES_USER: postgres
         ports:
             - 8080:5432
