@@ -1,0 +1,19 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Prata', serif;
+  color:#1d1d1d;
+  --fcolor:white;
+  --tcolor:white;
+  --icolor:white;
+  --ycolor:white;
+  --ytbcolor:#12ac99;
+  --ffcolor:black;
+  --ttcolor:black;
+  --iicolor:black;
+  --yycolor:black;
+  --yytbcolor:white;
+}
