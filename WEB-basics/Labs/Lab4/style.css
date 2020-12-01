@@ -192,3 +192,119 @@ nav ul li:hover {
 .info_bot ul {
   margin-top: 40px;
 }
+.b2 {
+  background-color: #fff;
+  width: 100vw;
+  padding-top: 120px;
+}
+.b2 h1 {
+  font-family: 'Sail', cursive;
+  font-size: 48px;
+  text-align: center;
+  color: #05a893;
+  padding-bottom: 40px;
+}
+.b2 p {
+  width: 770px;
+  font-family: 'Prata', serif;
+  margin-left: 600px;
+  text-align: center;
+  font-size: 18px;
+  opacity: .7;
+}
+.b2_content {
+  width: 1300px;
+  margin: auto;
+  height: 650px;
+  margin-bottom: 200px;
+  margin-top: 100px;
+}
+.name {
+  font-family: 'Sail', cursive;
+  font-size: 40px;
+  color: #45bfb0;
+  width: 255px;
+  float: left;
+}
+.aftername {
+  position: relative;
+  top: 25px;
+  width: 80px;
+  height: 3px;
+  border: none;
+  background-color: #45bfb0;
+  float: left;
+} 
+.robin {
+  width: 650px;
+  height: 325px;
+  float: left;
+  box-sizing: border-box;
+  padding-top: 60px;
+  padding-left: 60px;
+}
+.robin p {
+  text-align: left;
+  width: 590px;
+  display: inline-block;
+  margin-left: 0;
+  padding-top: 30px;
+}
+.b2_social li {
+  display: inline-block;
+  margin: 15px;
+}
+.facebook2 {
+  width: 30px;
+  height: 30px;
+}
+.twitter2 {
+  width: 30px;
+  height: 30px;
+}
+.inst2 {
+  width: 30px;
+  height: 30px;
+}
+.yt2 {
+  width: 30px;
+  height: 30px;
+}
+.ytb2 {
+  width: 30px;
+  height: 30px;
+}
+.ffacebook:hover {
+  --ffcolor: #12ac99;
+  transition: .3s;
+}
+.ttwitter:hover {
+  --ttcolor: #12ac99;
+  transition: .3s;
+}
+.iinst:hover {
+  --iicolor: #12ac99;
+  transition: .3s;
+}
+.yyt:hover {
+  --yycolor: #12ac99;
+  --yytbcolor: white;
+  transition: .3s;
+}
+.nerobin {
+  width: 650px;
+  height: 325px;
+  float: left;
+  background-image: url(src/Finland.jpg);
+  background-size: cover;
+}
+.b2_social ul {
+  position: relative;
+  left: -20px;
+}
+.flowers {
+  position: relative;
+  left: 1300px;
+  bottom: 600px;
+  width: 300px;
+}
