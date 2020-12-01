@@ -251,7 +251,7 @@ nav ul li:hover {
   padding-top: 30px;
 }
 .b2_social li {
-  display: inliqne-block;
+  display: inline-block;
   margin: 15px;
 }
 .facebook2 {
@@ -507,7 +507,7 @@ nav ul li:hover {
   background-size: cover;
 }
 .people_second .p3 {
-  background: url(src/mandarin.jpg);
+  background: url(img/mandarin.jpg);
   background-size: cover;
 }
 .people_second .p4 {
@@ -559,4 +559,111 @@ nav ul li:hover {
   color: white;
   transition: .3s;
 }
+.b7 {
+  margin-top: 150px;
+  width: 100vw;
+  background-color: #a3a3a3;
+  height: 765px;
+  border: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  overflow: hidden;
+}
+.confirm h1{
+  font-family: 'Sail', cursive;
+  font-size: 48px;
+  color: #05a893;
+  text-align: center;
+}
+.b7 img{
+  z-index: 1;
+  
+}
+.confirm {
+  width: 50vw;
+  height: 100%;
+  margin-left: 700px;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 120px;
+  float: left;
+  z-index: 2;
+  position: relative;
+}
+h1 {
+  font-family: 'Sail', cursive;
+  font-size: 48px;
+  text-align: center;
+  color: #05a893;
 
+}
+p {
+  text-align: center;
+}
+.b7 p {
+  margin-left: 0;
+  margin: auto;
+  width: 576px;
+  margin-bottom: 10px;
+
+}
+.i {
+  border: none;
+  width: 40%;
+  margin-right: 10%;
+  border-bottom: 1px solid black;
+}
+input {
+  font-family: 'Prata', serif;
+  font-size: 20px;
+  margin-top: 60px;
+  height: 50px;
+
+}
+input:focus {
+  outline: none;
+  transition: .2s;
+}
+.il {
+  width: 90%;
+  border: none;
+  border-bottom: 1px solid black;
+  margin-bottom: 50px;
+}
+.confirm button {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: 'Prata', serif;
+  width: 250px;
+  height: 60px;
+  float: right;
+  color: white;
+  background-color: #05a893;
+  border: none;
+  border-radius: 5px;
+}
+.confirm button:focus {
+  outline: none;
+  width: 260px;
+  height: 65px;
+  transition: .3s;
+  font-size: 19px;
+}
+
+footer {
+  padding-top: 40px;
+  margin: auto;
+  width: 100vw;
+  height: 120px;
+
+}
+footer p {
+  margin-top: 10px;
+  margin-left: 0;
+  text-align: center;
+}
+footer svg {
+  margin-left:825px
+}
