@@ -342,3 +342,76 @@ nav ul li:hover {
   width: 770px;
   height: 270px;
 }
+.b4 h1 {
+  font-family: 'Sail', cursive;
+  font-size: 48px;
+}
+.b4 p {
+  margin-left: 0px;
+  margin: auto;
+  font-size: 18px;
+
+}
+.story {
+  width: 1400px;
+  height: 605px;
+  margin: auto;
+  box-sizing: border-box;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.story_left {
+  height: 605px ;
+  width: 605px;
+  background-size: cover;
+  background: url(src/story-bg.png);
+  vertical-align: middle;
+  float: left;
+}
+.story_left img{
+  margin-top: 65px;
+  margin-left: 65px;
+  width: 475px;
+  height: 475px;
+  border-radius: 50%;
+}
+.story_des {
+  padding-top: 200px;
+  padding-left: 120px;
+  float: left;
+}
+.story_des h3 {
+  opacity: .7;
+}
+.story_des hr {
+  height: 2px;
+  background-color: black;
+  border: none;
+  border-radius: 4px;
+  width: 40px;
+  position: relative;
+  top: -15px;
+  left: 165px;
+}
+.story_des h2{
+  font-family: 'Sail', cursive;
+  color:  #12ac99;
+  font-size: 36px;
+  line-height: 70px;
+}
+.story_des p {
+  width: 600px;
+  text-align: left;
+}
+.story_des a {
+  color: #12ac99;
+  font-size: 28px;
+  text-decoration: none;
+  line-height: 70px;
+}
+.b4 {
+  height: 2800px;
+  width: 100vw;
+  float: left;
+}
+
