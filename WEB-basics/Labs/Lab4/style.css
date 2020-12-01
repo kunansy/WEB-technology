@@ -17,3 +17,28 @@ body {
   --yycolor:black;
   --yytbcolor:white;
 }
+
+nav {
+  height: 10vh;
+  width: 100vw;
+  box-sizing: border-box;
+  padding-left: 25vw;
+  padding-right: 25vw;
+  font-size: 20px;
+}
+nav ul {
+  list-style-type: none;
+  height: 10vh;
+}
+nav ul li {
+  display:inline-block;
+  padding:33.5px;
+  height: 10vh;
+  box-sizing: border-box;
+}
+nav ul li:hover {
+  background-color: #12ac99;
+  color: white;
+  transition: .3s;
+}
+
