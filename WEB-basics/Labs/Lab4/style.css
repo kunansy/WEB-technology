@@ -308,3 +308,37 @@ nav ul li:hover {
   bottom: 600px;
   width: 300px;
 }
+
+.b3 {
+  width: 100vw;
+  box-sizing: border-box;
+  padding: 0 375px 100px 375px;
+  height: 1200px;
+}
+.b3 h1 {
+  font-family: 'Sail', cursive;
+  font-size: 48px;
+}
+.b3 p {
+  margin-left: 0px;
+  margin: auto;
+  font-size: 18px;
+}
+.collage {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+.collage_bottom {
+  float: left;
+  margin-top: 30px;
+  height: 570px;
+}
+.coll_bot_block {
+  width: 770px;
+  height: 570px;
+  float: left;
+}
+.block_top {
+  width: 770px;
+  height: 270px;
+}
