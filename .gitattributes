@@ -3,3 +3,4 @@
 *.pdf ffilter=lfs diff=lfs merge=lfs -text
 *.pka ffilter=lfs diff=lfs merge=lfs -text
 *.jpg ffilter=lfs diff=lfs merge=lfs -text
+*.png ffilter=lfs diff=lfs merge=lfs -text
