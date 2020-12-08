@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 import asyncio
 import re
-from pathlib import Path
-from typing import Union
+import sys
+import time
+from typing import Tuple
 
 import aiofiles
 import aiohttp
-from colorama import Fore
+import aiojobs
 
-PATH = Union[str, Path]
-LINKS_PATH = 'l.txt'
+LINKS_PATH = 'links10.txt'
 
 
-async def get_link(path: PATH):
+async def get_link(path: str) -> Tuple[str, str]:
     async with aiofiles.open(path, 'r', encoding='utf-8') as f:
         async for link in f:
             yield link.split()
@@ -20,45 +20,50 @@ async def get_link(path: PATH):
 
 async def dump(content: str,
                filename: str) -> None:
-    pass
-    # async with aiofiles.open(f"data/{filename}", 'w', encoding='utf-8') as f:
-    #     await f.write(content)
+    async with aiofiles.open(f"data/{filename}", 'w', encoding='utf-8') as f:
+        await f.write(content)
 
 
 async def fetch(ses: aiohttp.ClientSession,
                 url: str,
                 filename: str) -> None:
-    timeout = aiohttp.ClientTimeout(1)
     print(f"Requested to '{url}'")
-    async with ses.get(url, timeout=timeout) as resp:
-        print(f"Received from '{url}'")
-        if resp.status is 200:
-            text = await resp.text()
-            await dump(text, f"{filename}.html")
-            print(f"Dumped: '{url}'")
-            return
-        print(Fore.RED, f"{resp.status} error requesting to {resp.url}: {resp.reason}")
-        print(Fore.RESET, end='')
+    try:
+        resp = await ses.get(url)
+    except Exception as e:
+        print(f"Sth went wrong requesting to {url}: {e}",
+              file=sys.stderr)
+        return
+    try:
+        resp.raise_for_status()
+    except Exception:
+        print(f"{resp.status} requesting to {resp.url}: {resp.reason}",
+              file=sys.stderr)
+        return
+
+    print(f"Received from '{url}'")
+    html = await resp.text()
+    # await dump(html, f"{filename}.html")
+    print(f"Dumped: '{url}'")
 
 
 async def bound_fetch(path: str) -> None:
-    async with aiohttp.ClientSession() as ses:
-        tasks = [
-            asyncio.create_task(fetch(ses, url, filename))
-            async for url, filename in get_link(path)
-        ]
-        while True:
-            done, pending = await asyncio.wait(tasks)
-            for future in done:
-                try:
-                    future.result()
-                except Exception as e:
-                    # print(e)
-                    return
+    timeout = aiohttp.ClientTimeout(5)
+    async with aiohttp.ClientSession(timeout=timeout) as ses:
+        scheduler = await aiojobs.create_scheduler()
+        async for url, filename in get_link(path):
+            await scheduler.spawn(fetch(ses, url, filename))
+
+        await asyncio.sleep(.5)
+        await scheduler.close()
 
 
 def main() -> None:
+    # TODO: check the file exists
+    # TODO: get logger from main file
+    start = time.time()
     asyncio.run(bound_fetch(LINKS_PATH))
+    print(f"Working time: {time.time() - start:.2f}")
 
 
 def add_pt_and_filename():
