@@ -26,7 +26,7 @@ async def dump(content: str,
 
 async def fetch(ses: aiohttp.ClientSession,
                 url: str,
-                filename: str) -> None:
+                filename: str):
     print(f"Requested to '{url}'")
     try:
         resp = await ses.get(url)
@@ -39,12 +39,14 @@ async def fetch(ses: aiohttp.ClientSession,
     except Exception:
         print(f"{resp.status} requesting to {resp.url}: {resp.reason}",
               file=sys.stderr)
+        resp.close()
         return
 
     print(f"Received from '{url}'")
     html = await resp.text()
     # await dump(html, f"{filename}.html")
     print(f"Dumped: '{url}'")
+    resp.close()
 
 
 async def bound_fetch(path: str) -> None:
@@ -54,7 +56,8 @@ async def bound_fetch(path: str) -> None:
         async for url, filename in get_link(path):
             await scheduler.spawn(fetch(ses, url, filename))
 
-        await asyncio.sleep(.5)
+        while len(scheduler) is not 0:
+            await asyncio.sleep(.5)
         await scheduler.close()
 
 
@@ -79,3 +82,4 @@ def add_pt_and_filename():
 
 if __name__ == "__main__":
     main()
+
