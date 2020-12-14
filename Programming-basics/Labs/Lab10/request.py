@@ -10,7 +10,7 @@ import aiofiles
 import aiohttp
 import aiojobs
 
-LINKS_PATH = 'links10.txt'
+LINKS_PATH = 'links100.txt'
 DATA_FOLDER = Path('data')
 
 logger = logging.getLogger('web-scraper')
@@ -58,18 +58,18 @@ async def fetch(ses: aiohttp.ClientSession,
     except Exception as e:
         logger.error(f"Sth went wrong requesting to {url}: {e}")
         return
+
     try:
         resp.raise_for_status()
     except Exception:
         logger.error(f"{resp.status} requesting to {resp.url}: {resp.reason}")
+    else:
+        logger.debug(f"Received from '{url}'")
+        html = await resp.text()
+        # await dump(html, f"{filename}.html")
+        logger.debug(f"Dumped: '{url}'")
+    finally:
         resp.close()
-        return
-
-    logger.debug(f"Received from '{url}'")
-    html = await resp.text()
-    # await dump(html, f"{filename}.html")
-    logger.debug(f"Dumped: '{url}'")
-    resp.close()
 
 
 async def bound_fetch(path: str) -> None:
@@ -83,7 +83,10 @@ async def bound_fetch(path: str) -> None:
     async with aiohttp.ClientSession(timeout=timeout) as ses:
         scheduler = await aiojobs.create_scheduler()
         async for url, filename in get_link(path):
-            await scheduler.spawn(fetch(ses, url, filename))
+            try:
+                await scheduler.spawn(fetch(ses, url, filename))
+            except Exception:
+                print("oops, timeout")
 
         while len(scheduler) is not 0:
             await asyncio.sleep(.5)
