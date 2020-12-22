@@ -37,6 +37,34 @@ logger.addHandler(stream_handler)
 logger.addHandler(file_handler)
 
 
+def set_handler_level(level: LEVEL,
+                      handler_class: type) -> None:
+    try:
+        level = level.upper()
+    except AttributeError:
+        pass
+
+    for handler_index in range(len(logger.handlers)):
+        if logger.handlers[handler_index].__class__ == handler_class:
+            logger.handlers[handler_index].setLevel(level)
+
+
+def set_stream_handler_level(level: LEVEL) -> None:
+    set_handler_level(level, logging.StreamHandler)
+
+
+def set_file_handler_level(level: LEVEL) -> None:
+    set_handler_level(level, logging.FileHandler)
+
+
+def set_logger_level(level: LEVEL) -> None:
+    try:
+        level = level.upper()
+    except AttributeError:
+        pass
+    logger.setLevel(level)
+
+
 def main() -> None:
     pass
 
