@@ -2,8 +2,11 @@
 import logging
 import os
 from pathlib import Path
+from typing import Union
 
 import request
+
+LEVEL = Union[int, str]
 
 MSG_FMT = "[{module}:{levelname}:{funcName}:{asctime}] {message}"
 DATE_FMT = "%d.%m.%Y %H:%M:%S"
@@ -66,7 +69,7 @@ def set_logger_level(level: LEVEL) -> None:
 
 
 def main() -> None:
-    pass
+    request.main(Path('links10.txt'))
 
 
 if __name__ == '__main__':
