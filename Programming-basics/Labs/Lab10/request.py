@@ -40,6 +40,8 @@ async def dump(content: str,
     async with aiofiles.open(path, 'w', encoding='utf-8') as f:
         await f.write(content)
 
+    logger.debug(f"{path} dumped")
+
 
 async def fetch(ses: aiohttp.ClientSession,
                 url: str) -> str:
@@ -106,25 +108,8 @@ async def bound_fetch(path: Path) -> None:
         for task in tasks:
             task.cancel()
 
-def main() -> None:
-    # TODO: check the file exists
-    # TODO: get logger from main file
+
+def main(link_path: Path) -> None:
     start = time.time()
-    asyncio.run(bound_fetch(LINKS_PATH))
+    asyncio.run(bound_fetch(link_path))
     logger.info(f"Working time: {time.time() - start:.2f}")
-
-
-def add_pt_and_filename():
-    with open('links.txt', encoding='utf-8') as f:
-        for link in f:
-            domain_name = re.search(r'(https?://)?(www\.)?(.*)\..*', link)
-            domain_name = domain_name.group(3)
-            pt = "https://"
-            link = pt * (not link.startswith(pt)) + link
-
-            yield link.strip(), domain_name
-
-
-if __name__ == "__main__":
-    main()
-
