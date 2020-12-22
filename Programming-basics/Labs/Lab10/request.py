@@ -1,26 +1,24 @@
 #!/usr/bin/env python3
 import asyncio
 import logging
-import re
+import os
 import time
 from pathlib import Path
-from typing import Tuple
+from typing import AsyncIterator, Tuple
 
 import aiofiles
 import aiohttp
-import aiojobs
 
-LINKS_PATH = 'links100.txt'
-DATA_FOLDER = Path('data')
-
+DATA_FOLDER = Path(os.getenv('DATA_FOLDER'))
 logger = logging.getLogger('web-scraper')
 
 
-async def get_link(path: str) -> Tuple[str, str]:
-    """ Generator to get link to the site
+async def get_link(path: Path) -> AsyncIterator[Tuple[str, str]]:
+    """
+    Asynchronous generator to get link to the site
     and path to where dump its HTML code.
 
-    :param path: Path to the link file.
+    :param path: Path to the  file.
     :return: yield tuple of str.
     """
     async with aiofiles.open(path, 'r', encoding='utf-8') as f:
@@ -30,7 +28,8 @@ async def get_link(path: str) -> Tuple[str, str]:
 
 async def dump(content: str,
                filename: str) -> None:
-    """ Dump page's HTML to to the file.
+    """
+    Dump page's HTML to to the file.
     All files will be dumped to 'data/' folder.
 
     :param content: str, HTML code to dump.
@@ -43,30 +42,30 @@ async def dump(content: str,
 
 
 async def fetch(ses: aiohttp.ClientSession,
-                url: str,
-                filename: str) -> None:
-    """ Get page's HTML code and dump it to the file.
-
+                url: str) -> str:
+    """
     :param ses: aiohttp.ClientSession.
     :param url: str, url from where get HTML code.
-    :param filename: str, name of the file to where dump the code.
-    :return: None.
+    :return: str, page's HTML code.
     """
     logger.debug(f"Requested to '{url}'")
     try:
         resp = await ses.get(url)
     except Exception as e:
-        logger.error(f"Sth went wrong requesting to {url}: {e}")
-        return
+        logger.error(f"Error requesting to {url}: {e}")
+        return ''
 
     try:
         resp.raise_for_status()
     except Exception:
-        logger.error(f"{resp.status} requesting to {resp.url}: {resp.reason}")
+        logger.error(
+            f"{resp.status} requesting to {resp.url}: {resp.reason}")
     else:
         return await resp.text()
     finally:
         resp.close()
+        logger.debug(f"Received from: '{url}'")
+
 
 async def worker(ses: aiohttp.ClientSession,
                  queue: asyncio.Queue) -> None:
