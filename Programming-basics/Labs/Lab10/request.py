@@ -64,34 +64,48 @@ async def fetch(ses: aiohttp.ClientSession,
     except Exception:
         logger.error(f"{resp.status} requesting to {resp.url}: {resp.reason}")
     else:
-        logger.debug(f"Received from '{url}'")
-        html = await resp.text()
-        # await dump(html, f"{filename}.html")
-        logger.debug(f"Dumped: '{url}'")
+        return await resp.text()
     finally:
         resp.close()
 
+async def worker(ses: aiohttp.ClientSession,
+                 queue: asyncio.Queue) -> None:
+    while True:
+        url, filename = await queue.get()
 
-async def bound_fetch(path: str) -> None:
-    """ Run coro, get HTML codes and dump them to files.
+        text = await fetch(ses, url)
+        if text:
+            await dump(text, filename)
+
+        queue.task_done()
+
+
+async def bound_fetch(path: Path) -> None:
+    """
+    Run coro, get HTML codes and dump
+    them to files using 5 workers for it.
+
     There is timeout = 5s.
 
     :param path: str, path to the file with URLs and filenames.
     :return: None.
     """
     timeout = aiohttp.ClientTimeout(5)
+    queue = asyncio.Queue()
+
     async with aiohttp.ClientSession(timeout=timeout) as ses:
-        scheduler = await aiojobs.create_scheduler()
         async for url, filename in get_link(path):
-            try:
-                await scheduler.spawn(fetch(ses, url, filename))
-            except Exception:
-                print("oops, timeout")
+            queue.put_nowait((url, filename))
 
-        while len(scheduler) is not 0:
-            await asyncio.sleep(.5)
-        await scheduler.close()
+        tasks = []
+        for _ in range(5):
+            task = asyncio.create_task(worker(ses, queue))
+            tasks += [task]
 
+        await queue.join()
+
+        for task in tasks:
+            task.cancel()
 
 def main() -> None:
     # TODO: check the file exists
