@@ -44,35 +44,35 @@ async def dump(content: str,
 
 
 async def fetch(ses: aiohttp.ClientSession,
-                url: str) -> str:
+                url: str) -> str or None:
     """
     :param ses: aiohttp.ClientSession.
     :param url: str, url from where get HTML code.
     :return: str, page's HTML code.
     """
+    start = time.time()
     logger.debug(f"Requested to '{url}'")
     try:
         resp = await ses.get(url)
     except Exception as e:
         logger.error(f"Error requesting to {url}: {e}")
-        return ''
+        return
 
-    try:
-        resp.raise_for_status()
-    except Exception:
+    if resp.status == 200:
+        logger.debug(f"Received from: '{url}', time={round(time.time() - start, 2)}")
+        text = await resp.text()
+        resp.close()
+        return text
+    else:
         logger.error(
             f"{resp.status} requesting to {resp.url}: {resp.reason}")
-    else:
-        return await resp.text()
-    finally:
         resp.close()
-        logger.debug(f"Received from: '{url}'")
 
 
 async def worker(ses: aiohttp.ClientSession,
                  queue: asyncio.Queue) -> None:
     while True:
-        url, filename = await queue.get()
+        url, filename = queue.get_nowait()
 
         text = await fetch(ses, url)
         if text:
@@ -113,3 +113,4 @@ def main(link_path: Path) -> None:
     start = time.time()
     asyncio.run(bound_fetch(link_path))
     logger.info(f"Working time: {time.time() - start:.2f}")
+
