@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import logging
 import os
+import sys
 from pathlib import Path
 from typing import Union
 
@@ -8,7 +9,8 @@ import request
 
 LEVEL = Union[int, str]
 
-MSG_FMT = "[{module}:{levelname}:{funcName}:{asctime}] {message}"
+MSG_FMT = "[{asctime},{msecs:3.0f}] [{levelname}] " \
+          "[{module}:{funcName}] {message}"
 DATE_FMT = "%d.%m.%Y %H:%M:%S"
 
 LOG_FOLDER = Path('logs')
@@ -40,24 +42,26 @@ logger.addHandler(stream_handler)
 logger.addHandler(file_handler)
 
 
-def set_handler_level(level: LEVEL,
-                      handler_class: type) -> None:
-    try:
-        level = level.upper()
-    except AttributeError:
-        pass
+def set_handler_level(handler_class: type):
+    def wrapped(level: LEVEL) -> None:
+        try:
+            level = level.upper()
+        except AttributeError:
+            pass
 
-    for handler_index in range(len(logger.handlers)):
-        if logger.handlers[handler_index].__class__ == handler_class:
-            logger.handlers[handler_index].setLevel(level)
+        for handler in logger.handlers:
+            if isinstance(handler, handler_class):
+                handler.setLevel(level)
+                return
+        print(f"There is no '{handler_class}' handler."
+              f"This behavior is undefined, contact the developer",
+              file=sys.stderr)
+
+    return wrapped
 
 
-def set_stream_handler_level(level: LEVEL) -> None:
-    set_handler_level(level, logging.StreamHandler)
-
-
-def set_file_handler_level(level: LEVEL) -> None:
-    set_handler_level(level, logging.FileHandler)
+set_stream_handler_level = set_handler_level(logging.StreamHandler)
+set_file_handler_level = set_handler_level(logging.FileHandler)
 
 
 def set_logger_level(level: LEVEL) -> None:
