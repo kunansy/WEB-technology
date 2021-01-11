@@ -4,7 +4,6 @@ https://vk.com vk.html
 https://ttttt.ccc tt.html
 https://photos.google.com pgoogle.html
 https://image.google.com igoogle.html
-https://coursera.org coursera.html
 https://ruscorpora.ru ruscorpora.html
 https://translate.google.com transgoogle.html
 https://www.gstatic.com gstatic.html
