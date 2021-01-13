@@ -9,8 +9,16 @@ from typing import AsyncIterator, Tuple
 import aiofiles
 import aiohttp
 
-DATA_FOLDER = Path(os.getenv('DATA_FOLDER'))
+
 logger = logging.getLogger('web-scraper')
+
+try:
+    data_folder = os.environ['DATA_FOLDER']
+except KeyError:
+    logger.error("You have to define environment variable 'DATA_FOLDER'")
+    exit(-1)
+
+DATA_FOLDER = Path(data_folder)
 
 
 async def get_link(path: Path) -> AsyncIterator[Tuple[str, str]]:

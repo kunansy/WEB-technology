@@ -7,6 +7,7 @@ from typing import Union
 
 import request
 
+
 LEVEL = Union[int, str]
 
 MSG_FMT = "[{asctime},{msecs:3.0f}] [{levelname}] " \
@@ -14,15 +15,10 @@ MSG_FMT = "[{asctime},{msecs:3.0f}] [{levelname}] " \
 DATE_FMT = "%d.%m.%Y %H:%M:%S"
 
 LOG_FOLDER = Path('logs')
-DATA_FOLDER = Path(os.getenv('DATA_FOLDER'))
-
 os.makedirs(LOG_FOLDER, exist_ok=True)
-os.makedirs(DATA_FOLDER, exist_ok=True)
 
 formatter = logging.Formatter(
-    fmt=MSG_FMT,
-    datefmt=DATE_FMT,
-    style='{'
+    fmt=MSG_FMT, datefmt=DATE_FMT, style='{'
 )
 
 stream_handler = logging.StreamHandler()
@@ -40,6 +36,15 @@ logger.setLevel(logging.DEBUG)
 
 logger.addHandler(stream_handler)
 logger.addHandler(file_handler)
+
+try:
+    data_folder = os.environ['DATA_FOLDER']
+except KeyError:
+    logger.error("You have to define environment variable 'DATA_FOLDER'")
+    exit(-1)
+
+DATA_FOLDER = Path(data_folder)
+os.makedirs(DATA_FOLDER, exist_ok=True)
 
 
 def set_handler_level(handler_class: type):
