@@ -7,3 +7,4 @@ https://image.google.com igoogle.html
 https://ruscorpora.ru ruscorpora.html
 https://translate.google.com transgoogle.html
 https://www.gstatic.com gstatic.html
+https://disk.yandex.ru ydisk.html
