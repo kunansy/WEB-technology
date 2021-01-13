@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
 import logging
 import os
-import sys
 from pathlib import Path
 from typing import Union
 
 import request
-
 
 LEVEL = Union[int, str]
 
@@ -58,9 +56,7 @@ def set_handler_level(handler_class: type):
             if isinstance(handler, handler_class):
                 handler.setLevel(level)
                 return
-        print(f"There is no '{handler_class}' handler."
-              f"This behavior is undefined, contact the developer",
-              file=sys.stderr)
+        logger.error(f"There is no '{handler_class}' handler.")
 
     return wrapped
 
