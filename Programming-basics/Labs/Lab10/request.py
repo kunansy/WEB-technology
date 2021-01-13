@@ -31,7 +31,8 @@ async def get_link(path: Path) -> AsyncIterator[Tuple[str, str]]:
     """
     async with aiofiles.open(path, 'r', encoding='utf-8') as f:
         async for link in f:
-            yield link.split()
+            if link.strip():
+                yield link.split()
 
 
 async def dump(content: str,
