@@ -33,7 +33,7 @@ async def from_file(path: Path) -> AsyncIterator[Tuple[str, str]]:
             else:
                 logger.error(
                     f"Line must be like 'http(s)://link filename', "
-                    f"but {link} found")
+                    f"but '{link}' found")
 
 
 async def dump(content: str,
@@ -77,6 +77,7 @@ async def fetch(ses: aiohttp.ClientSession,
 
     start = time.time()
     logger.debug(f"{worker_id}Requested to '{url}'")
+
     try:
         resp = await ses.get(url)
     except Exception as e:
@@ -172,7 +173,7 @@ def main(links: str or Path,
     if from_line:
         if IS_LINE_CORRECT.search(links) is None:
             msg = f"Line must be like 'http(s)://link filename', " \
-                  f"but {links} found"
+                  f"but '{links}' found"
             logger.error(msg)
             raise ValueError(msg)
 
