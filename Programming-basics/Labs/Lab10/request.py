@@ -12,14 +12,6 @@ import aiohttp
 
 logger = logging.getLogger('web-scraper')
 
-try:
-    data_folder = os.environ['DATA_FOLDER']
-except KeyError:
-    logger.error("You have to define environment variable 'DATA_FOLDER'")
-    exit(-1)
-
-DATA_FOLDER = Path(data_folder)
-
 
 async def get_link(path: Path) -> AsyncIterator[Tuple[str, str]]:
     """
@@ -49,7 +41,7 @@ async def dump(content: str,
     worker_id = kwargs.pop('worker_id', '')
     worker_id = f"{worker_id}: " * bool(worker_id)
 
-    path = DATA_FOLDER / filename
+    path = kwargs.pop('data_folder', Path('.')) / filename
     async with aiofiles.open(path, 'w', encoding='utf-8') as f:
         await f.write(content)
 
@@ -94,17 +86,20 @@ async def fetch(ses: aiohttp.ClientSession,
 
 async def worker(ses: aiohttp.ClientSession,
                  queue: asyncio.Queue,
-                 worker_id: str) -> None:
+                 worker_id: str,
+                 data_folder: Path) -> None:
     while True:
         url, filename = queue.get_nowait()
 
         text = await fetch(ses, url, worker_id=worker_id)
-        # await dump(text, filename, worker_id=worker_id)
+        # await dump(
+        # text, filename, worker_id=worker_id, data_folder=data_folder)
 
         queue.task_done()
 
 
-async def bound_fetch(path: Path) -> None:
+async def bound_fetch(path: Path,
+                      data_folder: Path) -> None:
     """
     Run coro, get HTML codes and dump
     them to files using 5 workers for it.
@@ -112,6 +107,7 @@ async def bound_fetch(path: Path) -> None:
     There is timeout = 5s.
 
     :param path: str, path to the file with URLs and filenames.
+    :param data_folder: Path to folder to where save the .html files.
     :return: None.
     """
     timeout = aiohttp.ClientTimeout(5)
@@ -125,7 +121,8 @@ async def bound_fetch(path: Path) -> None:
         for worker_id in range(5):
             worker_id = f"Worker-{worker_id + 1}"
             task = asyncio.create_task(
-                worker(ses, queue, worker_id=worker_id))
+                worker(ses, queue,
+                       worker_id=worker_id, data_folder=data_folder))
             tasks += [task]
 
         await queue.join()
@@ -134,7 +131,7 @@ async def bound_fetch(path: Path) -> None:
             task.cancel()
 
 
-def main(link_path: Path) -> None:
+def main(link_path: Path, data_folder: Path) -> None:
     start = time.time()
-    asyncio.run(bound_fetch(link_path))
+    asyncio.run(bound_fetch(link_path, data_folder))
     logger.info(f"Working time: {time.time() - start:.2f}")
