@@ -4,10 +4,10 @@ import os
 import sys
 from pathlib import Path
 
-import request
-
 import PyQt5.QtWidgets as Widgets
-from PyQt5 import uic, QtCore, QtGui
+from PyQt5 import uic, QtCore
+
+import request
 
 MAIN_WINDOW_PATH = ".{sep}ui{sep}main_window.ui".format(sep=os.sep)
 MAIN_WINDOW_PATH = Path(MAIN_WINDOW_PATH)
