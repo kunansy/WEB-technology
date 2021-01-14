@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import argparse
 import logging
 import os
 from pathlib import Path
@@ -74,7 +75,35 @@ def set_logger_level(level: LEVEL) -> None:
 
 
 def main() -> None:
-    request.main(Path('links10.txt'))
+    parser = argparse.ArgumentParser(
+        description="Get HTML codes of the sites"
+    )
+    parser.add_argument(
+        'links',
+        type=str,
+        help="File where there are links and expected file names",
+    )
+    parser.add_argument(
+        'dest',
+        type=str,
+        help="Folder to where save HTML codes",
+        required=False,
+        default=os.getenv('DATA_FOLDER') or 'data',
+    )
+    parser.add_argument(
+        '--log-level',
+        type=str,
+        help="Stream handler level",
+        choices=['debug', 'info', 'warning', 'error', 'critical'],
+        default='info',
+        dest='level'
+    )
+    args = parser.parse_args()
+
+    os.environ['DATA_FOLDER'] = args.dest
+    set_stream_handler_level(args.level)
+
+    request.main(Path(args.links))
 
 
 if __name__ == '__main__':
