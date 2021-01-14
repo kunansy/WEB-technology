@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 from typing import Union
 
+import gui
 import request
 
 LEVEL = Union[int, str]
@@ -35,15 +36,6 @@ logger.setLevel(logging.DEBUG)
 
 logger.addHandler(stream_handler)
 logger.addHandler(file_handler)
-
-try:
-    data_folder = os.environ['DATA_FOLDER']
-except KeyError:
-    logger.error("You have to define environment variable 'DATA_FOLDER'")
-    exit(-1)
-
-DATA_FOLDER = Path(data_folder)
-os.makedirs(DATA_FOLDER, exist_ok=True)
 
 
 def set_handler_level(handler_class: type):
@@ -79,31 +71,64 @@ def main() -> None:
         description="Get HTML codes of the sites"
     )
     parser.add_argument(
-        'links',
+        '-f', '--file',
         type=str,
         help="File where there are links and expected file names",
+        dest='links'
     )
     parser.add_argument(
-        'dest',
+        '-l', '--link',
+        type=str,
+        nargs=2,
+        help="Link to get its HTML code and file name from where put it",
+        metavar="LINK",
+        dest='links'
+    )
+    parser.add_argument(
+        '-dest',
         type=str,
         help="Folder to where save HTML codes",
         required=False,
-        default=os.getenv('DATA_FOLDER') or 'data',
+        default=os.getenv('DATA_FOLDER', 'data')
     )
     parser.add_argument(
         '--log-level',
         type=str,
-        help="Stream handler level",
+        help="Set stream handler level",
         choices=['debug', 'info', 'warning', 'error', 'critical'],
-        default='info',
+        default='debug',
         dest='level'
+    )
+    parser.add_argument(
+        "--no-gui",
+        help="Whether start app without GUI",
+        action="store_true",
+        default=False,
+        dest="no_gui"
     )
     args = parser.parse_args()
 
     os.environ['DATA_FOLDER'] = args.dest
+    os.makedirs(args.dest, exist_ok=True)
+
     set_stream_handler_level(args.level)
 
-    request.main(Path(args.links))
+    if args.no_gui is False:
+        gui.main()
+        return
+
+    if args.links is None:
+        raise ValueError("Links not set")
+
+    links = args.links
+    from_link = False
+    if isinstance(links, list):
+        links = ' '.join(links)
+        from_link = True
+    else:
+        links = Path(args.links)
+
+    request.main(links, Path(args.dest), from_link)
 
 
 if __name__ == '__main__':
