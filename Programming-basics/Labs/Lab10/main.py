@@ -28,7 +28,7 @@ stream_handler.setFormatter(formatter)
 path = LOG_FOLDER / f"lab10.log"
 file_handler = logging.FileHandler(
     path, delay=True, encoding='utf-8')
-file_handler.setLevel(logging.CRITICAL)
+file_handler.setLevel(logging.DEBUG)
 file_handler.setFormatter(formatter)
 
 logger = logging.getLogger("web-scraper")
